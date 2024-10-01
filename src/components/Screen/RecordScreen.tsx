@@ -6,7 +6,7 @@ function RecordScreen(){
     return (
         <SafeAreaView>
             <View>
-                <Text>MyPageScreen</Text>
+                <Text>RecordScreen</Text>
             </View>
     </SafeAreaView>
     )
