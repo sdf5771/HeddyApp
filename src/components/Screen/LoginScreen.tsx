@@ -20,20 +20,20 @@ function LoginScreen({navigation}){
                     </Text>
                 </View>
                 <View style={styles.loginContainer}>
-                    <Text>로그인</Text>
+                    <Text style={styles.loginContainerTitleText}>로그인</Text>
                     
                     <View>
                         <View style={styles.textInputWrapper}>
-                            <EmailLogo width={24} height={24} />
+                            <EmailLogo style={{marginTop: 17}} width={24} height={24} />
                             <TextInput style={styles.textInput} onChange={(event: NativeSyntheticEvent<TextInputChangeEventData>) => {
                                 setEmailValue(event.nativeEvent.text)
-                            }} placeholder='이메일' value={emailValue} />
+                            }} placeholder="이메일" value={emailValue} placeholderTextColor="#808080" />
                         </View>
                         <View style={styles.textInputWrapper}>
-                            <PasswordLogo width={24} height={24} />
+                            <PasswordLogo style={{marginTop: 17}} width={24} height={24} />
                             <TextInput style={styles.textInput} onChange={(event: NativeSyntheticEvent<TextInputChangeEventData>) => {
                                 setPasswordValue(event.nativeEvent.text)
-                            }} placeholder='영문, 숫자, 특수문자 포함 4~20자' value={passwordValue} />
+                            }} placeholder="영문, 숫자, 특수문자 포함 4~20자" value={passwordValue} placeholderTextColor="#808080" />
                         </View>
                         <View style={styles.loginPressable}>
                             <Pressable onPress={() => navigation.push('EmailInput')}>
@@ -76,14 +76,21 @@ const styles = StyleSheet.create({
         marginTop: 42,
     },
     titleText: {
+        fontFamily: 'NanumSquareRoundEB',
         marginTop: 16,
         fontSize: 24,
-        lineHeight: 40,
+        lineHeight: 34,
         fontWeight: 'bold',
+        color: '#1A1A1A',
     },
     loginContainer: {
         paddingHorizontal: 24,
         marginTop: 48,
+    },
+    loginContainerTitleText: {
+        fontFamily: 'NanumSquareRoundEB',
+        fontSize: 20,
+        color: '#000000',
     },
     textInputWrapper: {
         marginTop: 16,
@@ -92,7 +99,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignContent: 'center',
         paddingHorizontal: 16,
-        paddingVertical: 17,
         backgroundColor: '#F4F4F4',
         height: 56,
         gap: 8,
@@ -100,6 +106,8 @@ const styles = StyleSheet.create({
     textInput: {
         flex: 1,
         fontWeight: 'bold',
+        fontFamily: 'NanumSquareRoundB',
+        fontSize: 14,
     },
     loginPressable:{
         justifyContent: 'center',
@@ -110,6 +118,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#1F5FFF',
     },
     loginText: {
+        fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
         fontWeight: 'bold',
         color: '#ffffff',
@@ -136,6 +145,7 @@ const styles = StyleSheet.create({
         gap: 16,
     },
     pressText:{
+        fontFamily: 'NanumSquareRoundB',
         fontSize: 12,
         fontWeight: 'bold',
         color: '#808080',
