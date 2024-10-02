@@ -10,7 +10,10 @@ function RootNavigator(){
     const {isLoggedIn} = useAuth();
 
     return (
-        <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Navigator 
+            initialRouteName="SplashScreen"
+            screenOptions={{headerShown: false}}>
+            <Stack.Screen name="SplashScreen" component={Screen.SplashScreen} />
             {
                 isLoggedIn ?
                 null

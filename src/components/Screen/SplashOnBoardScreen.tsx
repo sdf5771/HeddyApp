@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import Swiper from 'react-native-swiper';
 
@@ -53,11 +53,11 @@ function SplashOnBoardScreen({navigation}){
                         </View>
                     </Swiper>
                 </View>
-                <Pressable onPress={() => navigation.pop()}>
+                <TouchableOpacity onPress={() => navigation.pop()}>
                     <View style={styles.onBoardButtonPressable}>
                         <Text style={styles.buttonPressableText}>Heddy 시작하기!</Text>
                     </View>
-                </Pressable>
+                </TouchableOpacity>
             </ScrollView>
         </SafeAreaView>
     )

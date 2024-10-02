@@ -1,0 +1,1 @@
+export {default as SplashHeddy} from './logo.svg';

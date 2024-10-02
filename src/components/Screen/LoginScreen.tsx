@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NativeSyntheticEvent, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TextInputChangeEventData, TextInputComponent, View } from 'react-native';
+import { NativeSyntheticEvent, Pressable, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TextInputChangeEventData, TextInputComponent, View } from 'react-native';
 import HeddyLogo from '../../assets/svgs/LoginScreen/HeddyLogo.svg';
 import EmailLogo from '../../assets/svgs/LoginScreen/email.svg';
 import PasswordLogo from '../../assets/svgs/LoginScreen/password.svg';
@@ -47,11 +47,11 @@ function LoginScreen({navigation}){
                                 setPasswordValue(event.nativeEvent.text)
                             }} placeholder="영문, 숫자, 특수문자 포함 4~20자" value={passwordValue} placeholderTextColor="#808080" />
                         </View>
-                        <View style={styles.loginPressable}>
-                            <Pressable onPress={() => navigation.push('EmailInput')}>
-                                <Text style={styles.loginText}>로그인 하기</Text>
-                            </Pressable>
-                        </View>
+                        <TouchableOpacity onPress={() => navigation.push('EmailInput')}>
+                            <View style={styles.loginPressable}>
+                                    <Text style={styles.loginText}>로그인 하기</Text>
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.SNSContainer}>
@@ -61,17 +61,17 @@ function LoginScreen({navigation}){
                     <View style={styles.dumpView}></View>
                 </View>
                 <View style={styles.registContainer}>
-                    <Pressable onPress={() => navigation.push('EmailInput')}>
+                    <TouchableOpacity onPress={() => navigation.push('EmailInput')}>
                         <Text style={styles.pressText}>아이디 찾기</Text>
-                    </Pressable>
+                    </TouchableOpacity>
                     <View style={styles.line}></View>
-                    <Pressable onPress={() => navigation.push('EmailInput')}>
+                    <TouchableOpacity onPress={() => navigation.push('EmailInput')}>
                         <Text style={styles.pressText}>비밀번호 찾기</Text>
-                    </Pressable>
+                    </TouchableOpacity>
                     <View style={styles.line}></View>
-                    <Pressable onPress={() => navigation.push('EmailInput')}>
+                    <TouchableOpacity onPress={() => navigation.push('EmailInput')}>
                         <Text style={styles.pressText}>이메일 가입</Text>
-                    </Pressable>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </SafeAreaView>
