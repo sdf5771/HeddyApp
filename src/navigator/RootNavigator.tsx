@@ -16,6 +16,7 @@ function RootNavigator(){
                 null
                 : <Stack.Screen name="Login" component={Screen.LoginScreen} />
             }
+            <Stack.Screen name="onboard" component={Screen.SplashOnBoardScreen} />
             <Stack.Screen name="Root" component={BottomTabNavigator} />
         </Stack.Navigator>
     )

@@ -24,6 +24,7 @@
     "react-native-screens": "^3.34.0",
     "react-native-svg": "^15.7.1",
     "react-native-svg-transformer": "^1.5.0",
+    "react-native-swiper": "^1.6.0-rc.3",
     "react-native-tab-view": "^3.5.2",
     "recoil": "^0.7.7"
   },

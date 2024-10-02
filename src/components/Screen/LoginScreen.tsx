@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NativeSyntheticEvent, Pressable, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TextInputChangeEventData, TextInputComponent, View } from 'react-native';
 import HeddyLogo from '../../assets/svgs/LoginScreen/HeddyLogo.svg';
 import EmailLogo from '../../assets/svgs/LoginScreen/email.svg';
 import PasswordLogo from '../../assets/svgs/LoginScreen/password.svg';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function LoginScreen({navigation}){
     const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');
+
+    const checkRenderOnBoard = async () => {
+        const isFirstTime = await AsyncStorage.getItem('startedBefore');
+        if(!isFirstTime){
+            navigation.push('onboard');
+        }
+    }
+
+    useEffect(() => {
+        checkRenderOnBoard();
+    }, [])
 
     return (
         <SafeAreaView style={styles.rootContainer}>
