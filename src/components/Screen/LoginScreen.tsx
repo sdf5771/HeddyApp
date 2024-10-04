@@ -47,7 +47,7 @@ function LoginScreen({navigation}){
                                 setPasswordValue(event.nativeEvent.text)
                             }} placeholder="영문, 숫자, 특수문자 포함 4~20자" value={passwordValue} placeholderTextColor="#808080" />
                         </View>
-                        <TouchableOpacity onPress={() => navigation.push('EmailInput')}>
+                        <TouchableOpacity onPress={() => navigation.replace('Root')}>
                             <View style={styles.loginPressable}>
                                     <Text style={styles.loginText}>로그인 하기</Text>
                             </View>

@@ -1,15 +1,18 @@
 import React from 'react';
-import { TouchableOpacity, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, SafeAreaView, ScrollView, StyleSheet, Text, View, Dimensions } from 'react-native';
 
 import Swiper from 'react-native-swiper';
 
 import { SlideOne, SlideTwo, SlideThree, SlideFour } from '../../assets/svgs/SplashOnBoardScreen';
 
+const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("window").height;
+
 function SplashOnBoardScreen({navigation}){
 
     return (
         <SafeAreaView style={styles.rootContainer}>
-            <ScrollView>
+            {/* <ScrollView style={{width: deviceWidth, height: deviceHeight}}> */}
                 <View style={styles.carouselContainer}>
                     <Swiper 
                         autoplay 
@@ -53,12 +56,14 @@ function SplashOnBoardScreen({navigation}){
                         </View>
                     </Swiper>
                 </View>
-                <TouchableOpacity onPress={() => navigation.pop()}>
-                    <View style={styles.onBoardButtonPressable}>
-                        <Text style={styles.buttonPressableText}>Heddy 시작하기!</Text>
-                    </View>
-                </TouchableOpacity>
-            </ScrollView>
+                <View style={styles.btnContainer}>
+                    <TouchableOpacity onPress={() => navigation.pop()}>
+                        <View style={styles.onBoardButtonPressable}>
+                            <Text style={styles.buttonPressableText}>Heddy 시작하기!</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            {/* </ScrollView> */}
         </SafeAreaView>
     )
 }
@@ -70,6 +75,7 @@ const styles = StyleSheet.create({
     },
     carouselContainer: {
         backgroundColor: '#ffffff',
+        width: deviceWidth, height: deviceHeight,
     },
     swiperSection: {
         height: 465,
@@ -78,7 +84,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         gap: 54,
-       
     },
     onBoardTitle: {
         marginTop: 79,
@@ -93,9 +98,15 @@ const styles = StyleSheet.create({
     onBoardImage:{
         
     },
+    btnContainer: {
+        position: 'absolute',
+        paddingHorizontal: 24,
+        bottom: 80,
+    },
     onBoardButtonPressable: {
-        marginTop: 137,
-        marginHorizontal: 24,
+        
+        // marginTop: 137,
+        width: deviceWidth - 48,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 16,
