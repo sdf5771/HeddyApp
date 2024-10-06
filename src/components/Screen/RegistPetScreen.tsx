@@ -14,8 +14,9 @@ function RegistPetScreen({navigation}){
 
 const styles = StyleSheet.create({
     rootContainer: {
-
-    }
+        flex: 1,
+        backgroundColor: '#ffffff',
+    },
 })
 
 export default RegistPetScreen;
