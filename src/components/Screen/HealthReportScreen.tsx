@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, Text } from 'react-native';
+import { SafeAreaView, View, Text, TouchableOpacity } from 'react-native';
 
 
 function HealthReportScreen({navigation}){
@@ -8,6 +8,11 @@ function HealthReportScreen({navigation}){
         <SafeAreaView>
             <View>
                 <Text>HealthReportScreen</Text>
+            </View>
+            <View>
+                <TouchableOpacity onPress={() => navigation.push('petListScreen')}>
+                    <Text>반려동물 리스트</Text>
+                </TouchableOpacity>
             </View>
         </SafeAreaView>
     )

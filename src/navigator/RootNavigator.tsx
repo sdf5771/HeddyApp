@@ -20,6 +20,8 @@ function RootNavigator(){
                 : <Stack.Screen name="Login" component={Screen.LoginScreen} />
             }
             <Stack.Screen name="onboard" component={Screen.SplashOnBoardScreen} />
+            <Stack.Screen name="petListScreen" component={Screen.PetListScreen} />
+            <Stack.Screen name="registPetScreen" component={Screen.RegistPetScreen} />
             <Stack.Screen name="Root" component={BottomTabNavigator} />
         </Stack.Navigator>
     )
