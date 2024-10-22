@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { NativeSyntheticEvent, Pressable, TouchableOpacity, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TextInputChangeEventData, TextInputComponent, View } from 'react-native';
+import { TouchableOpacity, SafeAreaView, ScrollView, StyleSheet, Text, View, Dimensions } from 'react-native';
 import HeddyLogo from '../../assets/svgs/LoginScreen/HeddyLogo.svg';
-import EmailLogo from '../../assets/svgs/LoginScreen/email.svg';
-import PasswordLogo from '../../assets/svgs/LoginScreen/password.svg';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import SnsKaKao from '../../assets/svgs/LoginScreen/kakaotalk-logo.svg';
+import SnsNaver from '../../assets/svgs/LoginScreen/naver-logo.svg';
+import { TitleErrorInputBox } from '../Molecules';
+
+const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("window").height;
 
 function LoginScreen({navigation}){
     const [emailValue, setEmailValue] = useState('');
@@ -32,10 +36,27 @@ function LoginScreen({navigation}){
                     </Text>
                 </View>
                 <View style={styles.loginContainer}>
-                    <Text style={styles.loginContainerTitleText}>로그인</Text>
+                    {/* <Text style={styles.loginContainerTitleText}>로그인</Text> */}
                     
-                    <View>
-                        <View style={styles.textInputWrapper}>
+                    <View style={{gap: 16}}>
+                        <TitleErrorInputBox 
+                            title="이메일" 
+                            placeholder='heddy1234@heddy.co.kr' 
+                            value={emailValue} 
+                            setInputValue={setEmailValue} 
+                            errorMsg='한글, 영문, 숫자 8자 이내만 입력이 가능해요' 
+                            isError={true} 
+                            inputMode='email' />
+                        <TitleErrorInputBox 
+                            title="비밀번호" 
+                            placeholder='영문/숫자/특수문자 10자 이상' 
+                            value={passwordValue}
+                            setInputValue={setPasswordValue} 
+                            errorMsg='한글, 영문, 숫자 8자 이내만 입력이 가능해요' 
+                            isError={true} 
+                            inputMode='text' 
+                            secureTextEntry={true} />
+                        {/* <View style={styles.textInputWrapper}>
                             <EmailLogo style={{marginTop: 17}} width={24} height={24} />
                             <TextInput style={styles.textInput} onChange={(event: NativeSyntheticEvent<TextInputChangeEventData>) => {
                                 setEmailValue(event.nativeEvent.text)
@@ -46,7 +67,7 @@ function LoginScreen({navigation}){
                             <TextInput style={styles.textInput} onChange={(event: NativeSyntheticEvent<TextInputChangeEventData>) => {
                                 setPasswordValue(event.nativeEvent.text)
                             }} placeholder="영문, 숫자, 특수문자 포함 4~20자" value={passwordValue} placeholderTextColor="#808080" />
-                        </View>
+                        </View> */}
                         <TouchableOpacity onPress={() => navigation.replace('Root')}>
                             <View style={styles.loginPressable}>
                                     <Text style={styles.loginText}>로그인 하기</Text>
@@ -54,11 +75,22 @@ function LoginScreen({navigation}){
                         </TouchableOpacity>
                     </View>
                 </View>
+                <View style={styles.horizontalLineContainer}>
+                    <View style={styles.horizontalLine}></View>
+                    <Text style={styles.horizontalLineText}>SNS 간편로그인</Text>
+                    <View style={styles.horizontalLine}></View>
+                </View>
                 <View style={styles.SNSContainer}>
-                    <View style={styles.dumpView}></View>
-                    <View style={styles.dumpView}></View>
-                    <View style={styles.dumpView}></View>
-                    <View style={styles.dumpView}></View>
+                    <TouchableOpacity onPress={() => console.log('kakao login press')}>
+                        <View style={styles.snsLogo}>
+                            <SnsKaKao />
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => console.log('naver login press')}>
+                        <View style={styles.snsLogo}>
+                            <SnsNaver />
+                        </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.registContainer}>
                     <TouchableOpacity onPress={() => navigation.push('EmailInput')}>
@@ -97,7 +129,7 @@ const styles = StyleSheet.create({
     },
     loginContainer: {
         paddingHorizontal: 24,
-        marginTop: 48,
+        marginTop: 40,
     },
     loginContainerTitleText: {
         fontFamily: 'NanumSquareRoundEB',
@@ -139,18 +171,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 48,
+        marginTop: 24,
         paddingHorizontal: 24,
         gap: 16,
     },
-    dumpView: {
+    snsLogo: {
         width: 48,
         height: 48,
-        borderRadius: 50,
-        backgroundColor: '#e4e4e4',
     },
     registContainer: {
         marginTop: 48,
+        marginBottom: 62,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
@@ -166,6 +197,24 @@ const styles = StyleSheet.create({
         width: 1,
         height: 16,
         backgroundColor: '#e4e4e4',
+    },
+    horizontalLineContainer:{
+        marginTop: 32,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 16,
+    },
+    horizontalLine:{
+        width: deviceWidth / 2 - 100,
+        height: 1,
+        backgroundColor: '#E4E4E4',
+    },
+    horizontalLineText: {
+        fontFamily: 'NanumSquareRoundB',
+        fontSize: 12,
+        fontWeight: 'bold',
+        color: '#808080',
     }
 })
 
