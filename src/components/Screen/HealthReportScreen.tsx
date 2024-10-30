@@ -26,9 +26,9 @@ function HealthReportScreen({navigation}){
                             <Text style={styles.petStatusText}>9살 / 6kg</Text>
                         </View>
                     </View>
-                    <View>
-                        
-                    </View>
+                    <TouchableOpacity>
+                        <Text style={styles.editText}>편집하기</Text>
+                    </TouchableOpacity>
                 </View>
                 <ScrollView style={styles.scrollViewSection}>
                     <HeddyBandHealthHistory />
@@ -66,8 +66,14 @@ const styles = StyleSheet.create({
         marginTop: 32,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'center',
         paddingHorizontal: 24,
+    },
+    editText: {
+        fontFamily: 'NanumSquareRoundEB',
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: '#808080',
+        textDecorationLine: 'underline',
     },
     petInformationBox: {
         flexDirection: 'row',
