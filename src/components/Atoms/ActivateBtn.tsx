@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
         gap: 2,
         paddingHorizontal: 12,
         paddingVertical: 8,
-        width: 86,
         height: 40,
         borderRadius: 16,
+        backgroundColor: '#F4F4F4',
     },
     activeBtnRoot: {
         display: 'flex',
@@ -46,17 +46,17 @@ const styles = StyleSheet.create({
         gap: 2,
         paddingHorizontal: 12,
         paddingVertical: 8,
-        width: 86,
         height: 40,
         borderRadius: 16,
+        backgroundColor: '#1F5FFF',
     },
-    defaultText: {
+    activeText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
         fontWeight: 'bold',
         color: '#ffffff',
     },
-    activeText: {
+    defaultText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
         fontWeight: 'bold',

@@ -27,7 +27,7 @@ function HealthReportScreen({navigation}){
                         </View>
                     </View>
                     <TouchableOpacity>
-                        <Text style={styles.editText}>편집하기</Text>
+                        <Text onPress={() => navigation.push('healthReportDetailScreen')} style={styles.editText}>편집하기</Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={styles.scrollViewSection}>
