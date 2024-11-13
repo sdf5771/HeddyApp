@@ -12,3 +12,4 @@ export {default as ArrowRightGray} from './arrow_right_gray.svg';
 
 export {default as RatioDefault} from './radio.svg';
 export {default as RatioActive} from './radio_active.svg';
+export {default as WarningLogo} from './warning_logo.svg';
