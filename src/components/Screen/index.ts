@@ -8,4 +8,8 @@ import PetListScreen from './PetListScreen';
 import RegistPetScreen from './RegistPetScreen';
 import HealthReportDetailScreen from './HealthReportDetailScreen';
 
-export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen}
+// Regist Account
+import RegistEmailAccountScreen from './RegistEmailAccountScreen';
+import RegistAgreeTermScreen from './RegistAgreeTermScreen';
+
+export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen}

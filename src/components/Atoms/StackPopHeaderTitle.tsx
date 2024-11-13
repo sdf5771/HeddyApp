@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import ArrowLeft from '../../assets/svgs/atoms/arrow_left.svg';
+import { ArrowLeftBlue } from '../../assets/svgs/atoms';
 
 type Tprops = {
     navigation: any
@@ -15,7 +15,7 @@ function StackPopHeaderTitle({navigation, text}: Tprops){
                 navigation.pop()
             }}>
             <View style={styles.textWrapper}>
-                <ArrowLeft width={24} height={24} />
+                <ArrowLeftBlue width={24} height={24} />
                 <Text style={styles.text}>{text}</Text>
             </View>
         </Pressable>

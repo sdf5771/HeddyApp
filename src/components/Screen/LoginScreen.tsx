@@ -101,7 +101,7 @@ function LoginScreen({navigation}){
                         <Text style={styles.pressText}>비밀번호 찾기</Text>
                     </TouchableOpacity>
                     <View style={styles.line}></View>
-                    <TouchableOpacity onPress={() => navigation.push('EmailInput')}>
+                    <TouchableOpacity onPress={() => navigation.push('registAgreeTermScreen')}>
                         <Text style={styles.pressText}>이메일 가입</Text>
                     </TouchableOpacity>
                 </View>
