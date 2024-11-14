@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, View, Text } from 'react-native';
 import { AgreeTermText, PrimaryColorButton, StackPopHeaderTitle } from '../Atoms';
-import { useNavigation } from '@react-navigation/native';
 import { DogGreeting } from '../../assets/svgs/RegistAgreeTermScreen';
 
-function RegistAgreeTermScreen(){
-    const navigation = useNavigation();
+function RegistAgreeTermScreen({navigation}){
     const [allTerm, setAllTerm] = useState(false);
     const [serviceTerm, setServiceTerm] = useState(false);
     const [personalInformationTerm, setPersonalInformationTerm] = useState(false);
@@ -92,7 +90,7 @@ function RegistAgreeTermScreen(){
                 <View style={styles.btnContainer}>
                     <PrimaryColorButton 
                         text='다음으로'
-                        onPressHandler={() => {}}
+                        onPressHandler={() => navigation.push('registEmailAccountScreen')}
                     />
                 </View>
             </ScrollView>

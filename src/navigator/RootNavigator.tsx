@@ -24,6 +24,10 @@ function RootNavigator(){
             <Stack.Screen name="registPetScreen" component={Screen.RegistPetScreen} />
             <Stack.Screen name="healthReportDetailScreen" component={Screen.HealthReportDetailScreen} />
             <Stack.Screen name="registAgreeTermScreen" component={Screen.RegistAgreeTermScreen} />
+            <Stack.Screen name="registEmailAccountScreen" component={Screen.RegistEmailAccountScreen} />
+            <Stack.Screen name="registEmailAuthScreen" component={Screen.RegistEmailAuthScreen} />
+            <Stack.Screen name="registUserInformationScreen" component={Screen.RegistUserInformationScreen} />
+            <Stack.Screen name="registSuccessScreen" component={Screen.RegistSuccessScreen} />
             <Stack.Screen name="Root" component={BottomTabNavigator} />
         </Stack.Navigator>
     )

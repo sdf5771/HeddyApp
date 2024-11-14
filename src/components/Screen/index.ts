@@ -11,7 +11,8 @@ import HealthReportDetailScreen from './HealthReportDetailScreen';
 // Regist Account
 import RegistEmailAccountScreen from './RegistEmailAccountScreen';
 import RegistAgreeTermScreen from './RegistAgreeTermScreen';
-import RegistEmailAuthtScreen from './RegistEmailAuthScreen';
+import RegistEmailAuthScreen from './RegistEmailAuthScreen';
 import RegistUserInformationScreen from './RegistUserInformationScreen';
+import RegistSuccessScreen from './RegistSuccessScreen';
 
-export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthtScreen, RegistUserInformationScreen}
+export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen}
