@@ -14,6 +14,11 @@ function BottomTabNavigator(){
             screenOptions={{
                 headerShown: false,
                 tabBarShowLabel: true,
+                tabBarStyle: {
+                    height: 82,
+                    paddingBottom: 16,
+                },
+                tabBarLabelPosition: 'below-icon',
             }}
             >
                 <Tab.Screen 
