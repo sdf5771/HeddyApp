@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     editText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#808080',
         textDecorationLine: 'underline',
     },
@@ -87,13 +87,13 @@ const styles = StyleSheet.create({
     petNameText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#1a1a1a',
     },
     petStatusText: {
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#4D4D4D',
     },
     scrollViewSection: {

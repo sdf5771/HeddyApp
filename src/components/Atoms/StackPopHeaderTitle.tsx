@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     text: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#000000',
         textAlign: 'center',
     },

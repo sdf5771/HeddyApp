@@ -63,19 +63,19 @@ const styles = StyleSheet.create({
     activeText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 10,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#1F5FFF',
     },
     title: {
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#1A1A1A',
     },
     betteryText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 700,
+        fontWeight: '700',
         textAlign: 'center',
         color: '#1F5FFF',
     }

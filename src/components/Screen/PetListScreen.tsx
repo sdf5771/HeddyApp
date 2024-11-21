@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     newPetBtnText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#4D4D4D',
         textAlign: 'center',
     },

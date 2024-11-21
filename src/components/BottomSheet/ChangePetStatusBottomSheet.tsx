@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'NanumSquareRoundEB',
     fontSize: 18,
-    fontWeight: 700,
+    fontWeight: '700',
     color: '#1a1a1a',
   },
   petList: {
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'NanumSquareRoundEB',
     fontSize: 14,
-    fontWeight: 700,
+    fontWeight: '700',
     color: '#4D4D4D',
   },
 });

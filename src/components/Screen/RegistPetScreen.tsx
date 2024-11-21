@@ -96,7 +96,7 @@ function RegistPetScreen({navigation}){
                                 <Text style={{
                                     fontFamily: 'NanumSquareRoundEB',
                                     fontSize: 14,
-                                    fontWeight: 'bold',
+                                    fontWeight: '700',
                                     color: '#1F5FFF',
                                 }}>살</Text>
                             </View>
@@ -113,7 +113,7 @@ function RegistPetScreen({navigation}){
                                 <Text style={{
                                     fontFamily: 'NanumSquareRoundEB',
                                     fontSize: 14,
-                                    fontWeight: 'bold',
+                                    fontWeight: '700',
                                     color: '#1F5FFF',
                                 }}>kg</Text>
                             </View>
@@ -198,13 +198,13 @@ const styles = StyleSheet.create({
     titleText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#1a1a1a',
     },
     requirementsText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: "#1F5FFF",
     },
     requireTextWrapper:{
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     helpText: {
         fontFamily: 'NanumSquareRoundB',
         fontSize: 10,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#808080',
     },
     textInputContainer: {
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
     textInput: {
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
     },
 
     toggleContainer: {
@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
     toggleText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#B3B3B3',
     },
     dateContainer: {
@@ -265,7 +265,7 @@ const styles = StyleSheet.create({
     dateText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#4D4D4D',
     },
     registBtn: {
@@ -279,7 +279,7 @@ const styles = StyleSheet.create({
     registBtnText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#ffffff',
     },
 })

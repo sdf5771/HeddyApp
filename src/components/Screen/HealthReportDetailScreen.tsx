@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     prevNavigateText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#808080',
     },
     tabContainer: {
@@ -149,21 +149,21 @@ const styles = StyleSheet.create({
     petStatusTitle: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: '700',
         textAlign: 'center',
         color: '#1a1a1a',
     },
     petHeartRateText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 56,
-        fontWeight: 'bold',
+        fontWeight: '700',
         textAlign: 'center',
         color: '#1a1a1a',
     },
     bpmText:{
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: '700',
         textAlign: 'center',
         color: '#1F5FFF',
     },
@@ -182,13 +182,13 @@ const styles = StyleSheet.create({
     petStatusReportTitle:{
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 18,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#1a1a1a',
     },
     petStatusReportDescription:{
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#b3b3b3',
     },
     reportContainer: {

@@ -131,13 +131,13 @@ const styles = StyleSheet.create({
     greetingTitleText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 20,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#000000',
     },
     greetingBolder: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 20,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#1F5FFF',
     },
     greetingTermText:{

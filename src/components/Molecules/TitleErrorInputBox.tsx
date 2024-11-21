@@ -45,13 +45,13 @@ const styles = StyleSheet.create({
     title: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#000000',
     },
     errorMsg: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 10,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#FF5252',
     },
     inputContainer:{

@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#1a1a1a',
     },
     batteryStatusContainer: {
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     statusTitleText : {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#1A1A1A',
     },
     statusTextWrapper: {
@@ -137,13 +137,13 @@ const styles = StyleSheet.create({
     statusValueText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#4D4D4D',
     },
     statusTypeText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#B3B3B3',
     },
 

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     errorText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 12,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#FF5252',
     },
 })

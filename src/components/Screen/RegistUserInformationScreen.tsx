@@ -107,20 +107,20 @@ const styles = StyleSheet.create({
     primaryColorTitle:{
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 24,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#1F5FFF',
     },
     defaultColorTitle:{
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 24,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#000000',
     },
     descriptionText: {
         marginTop: 8,
         fontFamily: 'NanumSquareRound',
         fontSize: 14,
-        fontWeight: 400,
+        fontWeight: '400',
         color: '#808080',
     },
     inputContainer:{

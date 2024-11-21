@@ -93,14 +93,14 @@ const styles = StyleSheet.create({
         marginLeft: 4,
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#1A1A1A',
     },
     timeText: {
         marginLeft: 8,
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#808080',
     },
     verticalSection:{
@@ -128,13 +128,13 @@ const styles = StyleSheet.create({
         color: '#B3B3B3',
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
     },
     dataText:{
         color: '#1A1A1A',
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '700',
     },
 })
 

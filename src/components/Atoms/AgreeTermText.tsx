@@ -54,25 +54,25 @@ const styles = StyleSheet.create({
     requirementText: {
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#1F5FFF',
     },
     optionalText: {
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#808080',
     },
     defaultBolderText:{
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#1F5FFF',
     },
     defaultText: {
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 700,
+        fontWeight: '700',
         color: '#4D4D4D',
     },
 })

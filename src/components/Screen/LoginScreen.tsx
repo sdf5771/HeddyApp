@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         marginTop: 16,
         fontSize: 24,
         lineHeight: 34,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#1A1A1A',
     },
     loginContainer: {
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     },
     textInput: {
         flex: 1,
-        fontWeight: 'bold',
+        fontWeight: '700',
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
     },
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
     loginText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#ffffff',
     },
     SNSContainer: {
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     pressText:{
         fontFamily: 'NanumSquareRoundB',
         fontSize: 12,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#808080',
     },
     line: {
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     horizontalLineText: {
         fontFamily: 'NanumSquareRoundB',
         fontSize: 12,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#808080',
     }
 })

@@ -75,13 +75,13 @@ const styles = StyleSheet.create({
     petNameText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 16,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#1a1a1a',
     },
     petStateText: {
         fontFamily: 'NanumSquareRoundB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#4d4d4d',
     },
 
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     notCompareText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 10,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#808080',
         textAlign: 'center',
     }

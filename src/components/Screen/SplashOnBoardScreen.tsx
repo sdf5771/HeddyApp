@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 24,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#1A1A1A',
         lineHeight: 34,
     },
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     buttonPressableText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#ffffff',
     },
 })

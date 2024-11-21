@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
     activeText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#ffffff',
     },
     defaultText: {
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
-        fontWeight: 'bold',
+        fontWeight: '700',
         color: '#4D4D4D',
     },
 })
