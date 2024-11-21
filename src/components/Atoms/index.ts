@@ -3,6 +3,7 @@ import ActivateBtn from "./ActivateBtn";
 import AgreeTermText from "./AgreeTermText";
 import PrimaryColorButton from "./PrimaryColorButton";
 import ErrorMessageBox from "./ErrorMessageBox";
+import PetListElement from "./PetListElement";
 
 export {
     StackPopHeaderTitle,
@@ -10,4 +11,5 @@ export {
     AgreeTermText,
     PrimaryColorButton,
     ErrorMessageBox,
+    PetListElement,
 }

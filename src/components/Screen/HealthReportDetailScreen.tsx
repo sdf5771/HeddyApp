@@ -31,13 +31,15 @@ function HealthReportDetailScreen(){
                         isActive={true}
                         onPressHandler={() => {}}
                     />
-                    <ActivateBtn 
-                        text="칼로리"
-                        DefaultIcon={KcalUnacitve}
-                        ActivateIcon={KcalActive}
-                        isActive={false}
-                        onPressHandler={() => {}}
-                    />
+                    <View style={{marginHorizontal: 8}}>
+                        <ActivateBtn 
+                            text="칼로리"
+                            DefaultIcon={KcalUnacitve}
+                            ActivateIcon={KcalActive}
+                            isActive={false}
+                            onPressHandler={() => {}}
+                        />
+                    </View>
                     <ActivateBtn 
                         text="이동거리"
                         DefaultIcon={MarkerUnactive}
@@ -45,13 +47,15 @@ function HealthReportDetailScreen(){
                         isActive={false}
                         onPressHandler={() => {}}
                     />
-                    <ActivateBtn 
-                        text="걸음수"
-                        DefaultIcon={PawUnactive}
-                        ActivateIcon={PawActive}
-                        isActive={false}
-                        onPressHandler={() => {}}
-                    />
+                    <View style={{marginLeft: 8, marginRight: 48}}>
+                        <ActivateBtn 
+                            text="걸음수"
+                            DefaultIcon={PawUnactive}
+                            ActivateIcon={PawActive}
+                            isActive={false}
+                            onPressHandler={() => {}}
+                        />
+                    </View>
                 </ScrollView>
                 <View style={styles.petStatusVisualContainer}>
                     <PetVisualBackground 
@@ -192,7 +196,7 @@ const styles = StyleSheet.create({
         marginBottom: 33,
         display: 'flex',
         gap: 16,
-    }
+    },
 })
 
 export default HealthReportDetailScreen;

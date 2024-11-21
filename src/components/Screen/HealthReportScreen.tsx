@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { SafeAreaView, View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { AfternoonDog, AfternoonDogWide, ArrowRightBlue } from '../../assets/svgs/HealthReportScreen';
 import { PetAvatarDefaultLogo } from '../../assets/svgs/atoms';
 import { HeddyBandHealthHistory } from '../organisms';
+import { ChangePetStatusBottomSheet } from '../BottomSheet';
 
 const deviceWidth = Dimensions.get("window").width;
 const deviceHeight = Dimensions.get("window").height;
 
 function HealthReportScreen({navigation}){
+    const [isVisible, setIsVisible] = useState(false);
+    const toggleModal = () => {
+        setIsVisible(!isVisible);
+    };
 
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{flex: 1}}>
             <View style={styles.wideSvgContainer}>
                 {/* <AfternoonDog width={deviceWidth} height={deviceWidth * (280 / 360)} /> */}
                 <AfternoonDogWide />
@@ -20,7 +25,7 @@ function HealthReportScreen({navigation}){
                     <View style={styles.petInformationBox}>
                         <PetAvatarDefaultLogo width={40} height={40} />
                         <View style={styles.petInfoTextBox}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => toggleModal()}>
                                 <Text style={styles.petNameText}>반려동물이름 <ArrowRightBlue /></Text>
                             </TouchableOpacity>
                             <Text style={styles.petStatusText}>9살 / 6kg</Text>
@@ -34,11 +39,7 @@ function HealthReportScreen({navigation}){
                     <HeddyBandHealthHistory />
                 </ScrollView>
             </View>
-            {/* <View>
-                <TouchableOpacity onPress={() => navigation.push('petListScreen')}>
-                    <Text>반려동물 리스트</Text>
-                </TouchableOpacity>
-            </View> */}
+            <ChangePetStatusBottomSheet isVisible={isVisible} toggleModal={toggleModal} />
         </SafeAreaView>
     )
 }
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
         left: (-1920 - -deviceWidth) / 2,
     },
     healthReportListContainer: {
-        zIndex: 1,
+        zIndex: 0,
         position: 'absolute',
         top: 256,
         left: 0,

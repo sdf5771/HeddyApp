@@ -13,3 +13,6 @@ export {default as ArrowRightGray} from './arrow_right_gray.svg';
 export {default as RatioDefault} from './radio.svg';
 export {default as RatioActive} from './radio_active.svg';
 export {default as WarningLogo} from './warning_logo.svg';
+
+export {default as ModalClose} from './modal_close.svg';
+export {default as CrossBlack} from './cross_black.svg';
