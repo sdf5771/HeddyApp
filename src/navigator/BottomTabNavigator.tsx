@@ -19,6 +19,13 @@ function BottomTabNavigator(){
                     paddingBottom: 16,
                 },
                 tabBarLabelPosition: 'below-icon',
+                tabBarLabelStyle: {
+                    fontFamily: 'NanumSquareRoundEB',
+                    fontSize: 12,
+                    fontWeight: '700',
+                },
+                tabBarActiveTintColor: '#1F5FFF',
+                tabBarInactiveTintColor: '#808080',
             }}
             >
                 <Tab.Screen 
