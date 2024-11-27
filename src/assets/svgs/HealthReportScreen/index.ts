@@ -8,3 +8,5 @@ export {default as RunningDogWide} from './running-dog-wide.svg';
 
 export {default as ArrowRightBlue} from './arrow-right-blue.svg';
 export {default as HeddyBandToken} from './heddyBandToken.svg';
+
+export {default as HeddyBandEmpty} from './empty-band.svg';

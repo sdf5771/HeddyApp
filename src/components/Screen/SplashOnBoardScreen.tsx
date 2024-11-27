@@ -4,12 +4,15 @@ import { TouchableOpacity, SafeAreaView, ScrollView, StyleSheet, Text, View, Dim
 import Swiper from 'react-native-swiper';
 
 import { SlideOne, SlideTwo, SlideThree, SlideFour } from '../../assets/svgs/SplashOnBoardScreen';
+import { motionLoadingState } from '../../stores';
+import { useRecoilState } from 'recoil';
 
 const deviceWidth = Dimensions.get("window").width;
 const deviceHeight = Dimensions.get("window").height;
 
 function SplashOnBoardScreen({navigation}){
-
+    const [isMotionLoading, setIsMotionLoading] = useRecoilState(motionLoadingState);
+    // setIsMotionLoading(true);
     return (
         <SafeAreaView style={styles.rootContainer}>
             {/* <ScrollView style={{width: deviceWidth, height: deviceHeight}}> */}

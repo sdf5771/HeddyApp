@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { SafeAreaView, View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { AfternoonDog, AfternoonDogWide, ArrowRightBlue } from '../../assets/svgs/HealthReportScreen';
 import { PetAvatarDefaultLogo } from '../../assets/svgs/atoms';
-import { HeddyBandHealthHistory } from '../organisms';
+import { HeddyBandHealthHistory, HeddyBandHealthHistoryEmpty } from '../organisms';
 import { ChangePetStatusBottomSheet } from '../BottomSheet';
 
 const deviceWidth = Dimensions.get("window").width;
@@ -37,6 +37,7 @@ function HealthReportScreen({navigation}){
                 </View>
                 <ScrollView style={styles.scrollViewSection}>
                     <HeddyBandHealthHistory />
+                    <HeddyBandHealthHistoryEmpty />
                 </ScrollView>
             </View>
             <ChangePetStatusBottomSheet isVisible={isVisible} toggleModal={toggleModal} />
@@ -97,7 +98,7 @@ const styles = StyleSheet.create({
         color: '#4D4D4D',
     },
     scrollViewSection: {
-
+        
     },
 })
 
