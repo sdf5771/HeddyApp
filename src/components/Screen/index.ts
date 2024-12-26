@@ -15,4 +15,9 @@ import RegistEmailAuthScreen from './RegistEmailAuthScreen';
 import RegistUserInformationScreen from './RegistUserInformationScreen';
 import RegistSuccessScreen from './RegistSuccessScreen';
 
-export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen}
+// Find Password
+import FindPasswordInputEmailScreen from './FindPasswordInputEmailScreen';
+import FindPasswordEmailAuthScreen from './FindPasswordEmailAuthScreen';
+import FindPasswordReplaceScreen from './FindPasswordReplaceScreen';
+import FindPasswordCompleteScreen from './FindPasswordCompleteScreen';
+export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen};

@@ -10,13 +10,14 @@ type Tprops = {
     value: string,
     setInputValue: React.Dispatch<React.SetStateAction<string>>,
     secureTextEntry?: boolean,
+    isRequired?: boolean,
 }
 
-function TitleErrorInputBox({title, errorMsg, isError, inputMode, placeholder, value, setInputValue, secureTextEntry}: Tprops){
+function TitleErrorInputBox({title, errorMsg, isError, inputMode, placeholder, value, setInputValue, secureTextEntry, isRequired}: Tprops){
     return (
         <View style={styles.titleErrorInputBoxRoot}>
             <View style={styles.headerContainer}>
-                <Text style={styles.title}>{title}</Text>
+                <Text style={styles.title}>{title} {isRequired ? <Text style={styles.required}>*</Text> : null}</Text>
                 {isError ? <Text style={styles.errorMsg}>{errorMsg}</Text> : null}
             </View>
             <View style={styles.inputContainer}>
@@ -63,6 +64,12 @@ const styles = StyleSheet.create({
         padding: 16,
         borderColor: '#E4E4E4',
         borderWidth: 1,
+    },
+    required: {
+        fontFamily: 'NanumSquareRoundEB',
+        fontSize: 16,
+        fontWeight: '700',
+        color: '#1F5FFF',
     },
 })
 

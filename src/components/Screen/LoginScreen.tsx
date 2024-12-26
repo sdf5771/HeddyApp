@@ -97,7 +97,7 @@ function LoginScreen({navigation}){
                         <Text style={styles.pressText}>아이디 찾기</Text>
                     </TouchableOpacity>
                     <View style={styles.line}></View>
-                    <TouchableOpacity onPress={() => navigation.push('EmailInput')}>
+                    <TouchableOpacity onPress={() => navigation.push('findPasswordInputEmailScreen')}>
                         <Text style={styles.pressText}>비밀번호 찾기</Text>
                     </TouchableOpacity>
                     <View style={styles.line}></View>

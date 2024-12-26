@@ -28,6 +28,10 @@ function RootNavigator(){
             <Stack.Screen name="registEmailAuthScreen" component={Screen.RegistEmailAuthScreen} />
             <Stack.Screen name="registUserInformationScreen" component={Screen.RegistUserInformationScreen} />
             <Stack.Screen name="registSuccessScreen" component={Screen.RegistSuccessScreen} />
+            <Stack.Screen name="findPasswordInputEmailScreen" component={Screen.FindPasswordInputEmailScreen} />
+            <Stack.Screen name="findPasswordEmailAuthScreen" component={Screen.FindPasswordEmailAuthScreen} />
+            <Stack.Screen name="findPasswordReplaceScreen" component={Screen.FindPasswordReplaceScreen} />
+            <Stack.Screen name="findPasswordCompleteScreen" component={Screen.FindPasswordCompleteScreen} />
             <Stack.Screen name="Root" component={BottomTabNavigator} />
         </Stack.Navigator>
     )
