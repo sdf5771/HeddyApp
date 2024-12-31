@@ -4,7 +4,9 @@ import AgreeTermText from "./AgreeTermText";
 import PrimaryColorButton from "./PrimaryColorButton";
 import ErrorMessageBox from "./ErrorMessageBox";
 import PetListElement from "./PetListElement";
-
+import LineChartComponent from "./LineChartComponent";
+import CompareLineChartComponent from "./CompareLineChartComponent";
+import BarChartComponent from "./BarChartComponent";
 export {
     StackPopHeaderTitle,
     ActivateBtn,
@@ -12,4 +14,7 @@ export {
     PrimaryColorButton,
     ErrorMessageBox,
     PetListElement,
+    LineChartComponent,
+    CompareLineChartComponent,
+    BarChartComponent,
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, View, Text, Dimensions, TouchableOpacity } from 'react-native';
 import { ArrowLeftGray } from '../../assets/svgs/atoms';
-import { ActivateBtn } from '../Atoms';
+import { ActivateBtn, LineChartComponent, CompareLineChartComponent, BarChartComponent } from '../Atoms';
 import { PetVisualBackground, HeartRateUnactive, HeartRageActive, KcalUnacitve, KcalActive, MarkerUnactive, MarkerActive, PawUnactive, PawActive } from '../../assets/svgs/HealthReportDetailScreen';
 import { HeartRateReportElement } from '../organisms';
 import { CalendarLogo, SunLogo, NightLogo } from '../../assets/svgs/HealthReportDetailScreen';
@@ -66,6 +66,13 @@ function HealthReportDetailScreen(){
                         <Text style={styles.petStatusTitle}>현재 심박수</Text>
                         <Text style={styles.petHeartRateText}>131</Text>
                         <Text style={styles.bpmText}>BPM</Text>
+                    </View>
+                </View>
+                <View style={styles.chartSection}>
+                    <View style={styles.chartContainer}>
+                        {/* <LineChartComponent /> */}
+                        {/* <CompareLineChartComponent /> */}
+                        <BarChartComponent />
                     </View>
                 </View>
                 <View style={styles.petStatusReportContainer}>
@@ -167,9 +174,21 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#1F5FFF',
     },
+    chartSection: {
+        paddingVertical: 32,
+        paddingHorizontal: 24,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
+    chartContainer:{
+        width: '100%',
+        height: 409,
+    },
     petStatusReportContainer: {
         display: 'flex',
-        backgroundColor: '#E4E4E4',
+        backgroundColor: '#F4F4F4',
         paddingHorizontal: 24,
     },
     petStatusReportHeader:{

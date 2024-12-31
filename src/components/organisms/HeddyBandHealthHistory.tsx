@@ -79,7 +79,6 @@ function HeddyBandHealthHistory(){
 
 const styles = StyleSheet.create({
     heddyBandHealthHistoryRoot: {
-        marginTop: 32,
     },
     headerContainer: {
         flexDirection: 'row',

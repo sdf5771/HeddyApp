@@ -18,3 +18,5 @@ export {default as ModalClose} from './modal_close.svg';
 export {default as CrossBlack} from './cross_black.svg';
 
 export {default as PasswordLogo} from './password_logo.svg';
+
+export {default as BatteryLogo} from './battery.svg';

@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { HeddyBandEmpty } from '../../assets/svgs/HealthReportScreen';
+import { useNavigation } from '@react-navigation/native';
 
 function HeddyBandHealthHistoryEmpty(){
-
+    const navigation = useNavigation();
     return (
         <View style={styles.rootContainer}>
             <View style={styles.svgContainer}>
@@ -14,7 +15,7 @@ function HeddyBandHealthHistoryEmpty(){
                 <Text style={styles.subText}>HEDDY의 블루투스 기기를 페어링해보세요!</Text>
             </View>
             <View style={styles.btnContainer}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.push('manageHeddyBandScreen')}>
                     <View style={styles.btn}>
                         <Text style={styles.btnText}>연결하기</Text>
                     </View>

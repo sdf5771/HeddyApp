@@ -20,4 +20,8 @@ import FindPasswordInputEmailScreen from './FindPasswordInputEmailScreen';
 import FindPasswordEmailAuthScreen from './FindPasswordEmailAuthScreen';
 import FindPasswordReplaceScreen from './FindPasswordReplaceScreen';
 import FindPasswordCompleteScreen from './FindPasswordCompleteScreen';
-export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen};
+
+// Manage Heddy Band
+import ManageHeddyBandScreen from './ManageHeddyBandScreen';
+
+export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen, ManageHeddyBandScreen};

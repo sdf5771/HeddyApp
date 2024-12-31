@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     },
     healthReportListHeader: {
         marginTop: 32,
+        paddingBottom: 32,
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingHorizontal: 24,
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
         color: '#4D4D4D',
     },
     scrollViewSection: {
-        
+        marginBottom: 100,
     },
 })
 
