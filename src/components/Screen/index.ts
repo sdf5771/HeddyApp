@@ -24,4 +24,7 @@ import FindPasswordCompleteScreen from './FindPasswordCompleteScreen';
 // Manage Heddy Band
 import ManageHeddyBandScreen from './ManageHeddyBandScreen';
 
-export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen, ManageHeddyBandScreen};
+// History Card Write
+import HistoryCardWriteScreen from './HistoryCardWriteScreen';
+
+export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen, ManageHeddyBandScreen, HistoryCardWriteScreen};

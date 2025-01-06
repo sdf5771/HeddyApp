@@ -33,6 +33,7 @@ function RootNavigator(){
             <Stack.Screen name="findPasswordReplaceScreen" component={Screen.FindPasswordReplaceScreen} />
             <Stack.Screen name="findPasswordCompleteScreen" component={Screen.FindPasswordCompleteScreen} />
             <Stack.Screen name="manageHeddyBandScreen" component={Screen.ManageHeddyBandScreen} />
+            <Stack.Screen name="historyCardWriteScreen" component={Screen.HistoryCardWriteScreen} />
             <Stack.Screen name="Root" component={BottomTabNavigator} />
         </Stack.Navigator>
     )

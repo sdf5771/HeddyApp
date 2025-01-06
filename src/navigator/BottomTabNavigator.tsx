@@ -36,7 +36,7 @@ function BottomTabNavigator(){
                     }}
                 />
                 <Tab.Screen 
-                    name="기록"
+                    name="기록 카드"
                     component={Screen.RecordScreen}
                     options={{
                         tabBarIcon: ({focused, color, size}) => (!focused ? <RecordLogoDefault width={40} height={40} /> : <RecordLogoActive width={40} height={40} />),
