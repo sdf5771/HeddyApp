@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import {ExpandableCalendar, AgendaList, CalendarProvider, WeekCalendar} from 'react-native-calendars';
 
 function RecordScreen(){
+    const [isWeekView, setIsWeekView] = useState(false);
 
     return (
         <SafeAreaView style={styles.rootContainer}>
@@ -24,7 +26,38 @@ function RecordScreen(){
                     </TouchableOpacity>
                 </View>
                 <View style={styles.calendarContainer}>
-
+                    <CalendarProvider 
+                        date={new Date().toISOString()}
+                        theme={{
+                            calendarBackground: '#ffffff',
+                            textSectionTitleColor: '#b6c1cd',
+                            selectedDayBackgroundColor: '#00adf5',
+                            selectedDayTextColor: '#ffffff',
+                            todayTextColor: '#00adf5',
+                            dayTextColor: '#2d4150',
+                            textDisabledColor: '#d9e1e8',
+                            dotColor: '#00adf5',
+                            selectedDotColor: '#ffffff',
+                        }}
+                    >
+                    <ExpandableCalendar
+                        theme={{
+                            calendarBackground: '#ffffff',
+                            textSectionTitleColor: '#b6c1cd',
+                            selectedDayBackgroundColor: '#00adf5',
+                            selectedDayTextColor: '#ffffff',
+                            todayTextColor: '#00adf5',
+                            dayTextColor: '#2d4150',
+                            textDisabledColor: '#d9e1e8',
+                            dotColor: '#00adf5',
+                            selectedDotColor: '#ffffff',
+                        }}
+                        initialPosition={isWeekView ? 'open' : 'closed'}
+                        disablePan={isWeekView}
+                        hideKnob={true}
+                        firstDay={0}
+                        hideArrows={true} />
+                    </CalendarProvider>
                 </View>
             </View>
             <View style={styles.historyCardSection}>

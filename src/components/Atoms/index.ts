@@ -7,6 +7,7 @@ import PetListElement from "./PetListElement";
 import LineChartComponent from "./LineChartComponent";
 import CompareLineChartComponent from "./CompareLineChartComponent";
 import BarChartComponent from "./BarChartComponent";
+import CompareBarChartComponent from "./CompareBarChartComponent";
 export {
     StackPopHeaderTitle,
     ActivateBtn,
@@ -17,4 +18,5 @@ export {
     LineChartComponent,
     CompareLineChartComponent,
     BarChartComponent,
-}
+    CompareBarChartComponent,
+};

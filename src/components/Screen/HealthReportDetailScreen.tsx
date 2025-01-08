@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, View, Text, Dimensions, TouchableOpacity } from 'react-native';
 import { ArrowLeftGray } from '../../assets/svgs/atoms';
-import { ActivateBtn, LineChartComponent, CompareLineChartComponent, BarChartComponent } from '../Atoms';
+import { ActivateBtn, LineChartComponent, CompareLineChartComponent, BarChartComponent, CompareBarChartComponent } from '../Atoms';
 import { PetVisualBackground, HeartRateUnactive, HeartRageActive, KcalUnacitve, KcalActive, MarkerUnactive, MarkerActive, PawUnactive, PawActive } from '../../assets/svgs/HealthReportDetailScreen';
 import { HeartRateReportElement } from '../organisms';
 import { CalendarLogo, SunLogo, NightLogo } from '../../assets/svgs/HealthReportDetailScreen';
@@ -72,7 +72,8 @@ function HealthReportDetailScreen(){
                     <View style={styles.chartContainer}>
                         {/* <LineChartComponent /> */}
                         {/* <CompareLineChartComponent /> */}
-                        <BarChartComponent />
+                        {/* <BarChartComponent /> */}
+                        <CompareBarChartComponent />
                     </View>
                 </View>
                 <View style={styles.petStatusReportContainer}>
