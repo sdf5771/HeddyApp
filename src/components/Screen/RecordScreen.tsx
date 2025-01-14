@@ -13,7 +13,7 @@ type TWeekDateState = {
     dayOfTheWeek: string;
 }
 
-function RecordScreen(){
+function RecordScreen({navigation}: {navigation: any}){
     const [dateState, setDateState] = useState(new Date().toISOString());
     const [isWeekView, setIsWeekView] = useState(false);
     const heightAnim = useRef(new Animated.Value(163)).current;
@@ -194,6 +194,9 @@ function RecordScreen(){
                                 isEmptyView={true} 
                                 date={`${weekDate.month}.${weekDate.day}`}
                                 dayOfTheWeek={weekDate.dayOfTheWeek}
+                                writeButtonOnPress={() => {
+                                    navigation.push('recordWriteScreen', weekDate);
+                                }}
                                 />
                             </View>
                         )) : null

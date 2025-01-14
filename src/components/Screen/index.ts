@@ -1,6 +1,7 @@
 import HealthReportScreen from './HealthReportScreen';
 import MyPageScreen from './MyPageScreen';
 import RecordScreen from './RecordScreen';
+import RecordWriteScreen from './RecordWriteScreen';
 import LoginScreen from './LoginScreen';
 import SplashOnBoardScreen from './SplashOnBoardScreen';
 import SplashScreen from './SplashScreen';
@@ -27,4 +28,4 @@ import ManageHeddyBandScreen from './ManageHeddyBandScreen';
 // History Card Write
 import HistoryCardWriteScreen from './HistoryCardWriteScreen';
 
-export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen, ManageHeddyBandScreen, HistoryCardWriteScreen};
+export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen, ManageHeddyBandScreen, HistoryCardWriteScreen, RecordWriteScreen};

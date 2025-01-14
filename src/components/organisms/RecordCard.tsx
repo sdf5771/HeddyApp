@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Animated, TouchableOpacity } from 'react-native
 
 type Tprops = {
     isEmptyView: boolean;
-    onPress?: () => void;
+    writeButtonOnPress?: () => void;
     date: string;
     dayOfTheWeek: string;
 }
@@ -11,15 +11,14 @@ type Tprops = {
 const DEFAULT_HEIGHT = 50;
 const EXPANDED_HEIGHT = 431;
 
-function RecordCard({isEmptyView, onPress, date, dayOfTheWeek}: Tprops){
+function RecordCard({isEmptyView, writeButtonOnPress, date, dayOfTheWeek}: Tprops){
     const [isExpanded, setIsExpanded] = useState(false);
-    const animatedHeight = useRef(new Animated.Value(DEFAULT_HEIGHT)).current;
     return (
-        <Animated.View style={[styles.recordCardContainer, {height: animatedHeight}]}>
+        <Animated.View style={styles.recordCardContainer}>
             {isEmptyView ? 
             <View style={styles.recordCardHeader}>
                 <Text style={styles.recordCardHeaderDateText}>{date}.{dayOfTheWeek}</Text>
-                <TouchableOpacity onPress={onPress}>
+                <TouchableOpacity onPress={writeButtonOnPress}>
                     <View style={styles.writeButton}>
                         <Text style={styles.writeButtonText}>작성하기</Text>
                     </View>
@@ -39,11 +38,11 @@ function RecordCard({isEmptyView, onPress, date, dayOfTheWeek}: Tprops){
                     <View>
                         <TouchableOpacity onPress={() => {
                             setIsExpanded(!isExpanded);
-                            Animated.timing(animatedHeight, {
-                                toValue: isExpanded ? DEFAULT_HEIGHT : EXPANDED_HEIGHT,
-                                duration: 300,
-                                useNativeDriver: false,
-                            }).start();
+                            // Animated.timing(animatedHeight, {
+                            //     toValue: isExpanded ? DEFAULT_HEIGHT : EXPANDED_HEIGHT,
+                            //     duration: 300,
+                            //     useNativeDriver: false,
+                            // }).start();
                         }}>
                             <Text>데이터 추가하기</Text>
                         </TouchableOpacity>
