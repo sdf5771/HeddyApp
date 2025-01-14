@@ -3,9 +3,29 @@ import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, ScrollView } fr
 import { StackPopHeaderTitle } from '../Atoms';
 import { useRoute } from '@react-navigation/native';
 import { TextInput } from 'react-native-gesture-handler';
+import { EmptyImage } from '../../assets/svgs/atoms';
+import { launchImageLibrary } from 'react-native-image-picker';
+
 function RecordWriteScreen({navigation}: {navigation: any}){
     const route = useRoute();
     const {day, dayOfTheWeek, month} = route.params;
+
+    const attachImageOnPressHandler = () => {
+        const options = {
+            mediaType: 'photo', // 사진만 선택
+            includeBase64: false, // Base64 포함 여부
+        };
+    
+        launchImageLibrary(options, (response) => {
+            if (response.didCancel) {
+                console.log('사용자가 갤러리 선택을 취소했습니다.');
+            } else if (response.error) {
+                console.log('이미지 선택 중 오류 발생:', response.error);
+            } else {
+                console.log('선택한 이미지:', response.assets[0]);
+            }
+        });
+    };
 
     return (
         <SafeAreaView style={styles.rootContainer}>
@@ -66,9 +86,10 @@ function RecordWriteScreen({navigation}: {navigation: any}){
                         <Text style={styles.titleText}>사진기록</Text>
                     </View>
                     <View style={styles.imageListContainer}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={attachImageOnPressHandler}>
                             <View style={styles.imageElement}>
-                                <Text>사진첨부</Text>
+                                <EmptyImage />
+                                <Text style={styles.imageElementText}>0/6</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -189,9 +210,24 @@ const styles = StyleSheet.create({
         gap: 8,
     },
     imageElement: {
-        borderRadius: 16,
-        backgroundColor: '#F4F4F4',
+        width: 82,
+        height: 82,
+        borderRadius: 8,
+        backgroundColor: '#ffffff',
+        borderWidth: 1,
+        borderColor: '#E4E4E4',
         padding: 12,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 7,
+    },
+    imageElementText: {
+        fontFamily: 'NanumSquareRoundEB',
+        fontSize: 12,
+        fontWeight: '900',
+        color: '#808080',
     },
     imageInput: {
         width: '100%',

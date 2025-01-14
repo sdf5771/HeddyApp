@@ -188,9 +188,8 @@ function RecordScreen({navigation}: {navigation: any}){
                 <ScrollView style={styles.historyCardSectionContainer}>
                     {
                         weekDateState ? weekDateState.map((weekDate, index) => (
-                            <View style={{marginBottom: 16}}>
+                            <View key={`${weekDate.month}.${weekDate.day}`} style={{marginBottom: 16}}>
                                 <RecordCard 
-                                key={`${weekDate.month}.${weekDate.day}`}
                                 isEmptyView={true} 
                                 date={`${weekDate.month}.${weekDate.day}`}
                                 dayOfTheWeek={weekDate.dayOfTheWeek}

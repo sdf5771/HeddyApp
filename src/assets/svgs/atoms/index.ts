@@ -20,3 +20,5 @@ export {default as CrossBlack} from './cross_black.svg';
 export {default as PasswordLogo} from './password_logo.svg';
 
 export {default as BatteryLogo} from './battery.svg';
+
+export {default as EmptyImage} from './empty_image.svg';
