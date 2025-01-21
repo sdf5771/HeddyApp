@@ -190,7 +190,7 @@ function RecordScreen({navigation}: {navigation: any}){
                         weekDateState ? weekDateState.map((weekDate, index) => (
                             <View key={`${weekDate.month}.${weekDate.day}`} style={{marginBottom: 16}}>
                                 <RecordCard 
-                                isEmptyView={true} 
+                                isEmptyView={index !== 0 ? true : false} 
                                 date={`${weekDate.month}.${weekDate.day}`}
                                 dayOfTheWeek={weekDate.dayOfTheWeek}
                                 writeButtonOnPress={() => {

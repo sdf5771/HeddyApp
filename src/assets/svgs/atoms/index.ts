@@ -9,6 +9,7 @@ export {default as HeartRateLogo} from './heartRate.svg';
 export {default as ArrowLeftGray} from './arrow_left_gray.svg';
 export {default as ArrowLeftBlue} from './arrow_left_blue.svg';
 export {default as ArrowRightGray} from './arrow_right_gray.svg';
+export {default as ArrowDownBlack} from './arrow_down_black.svg';
 
 export {default as RatioDefault} from './radio.svg';
 export {default as RatioActive} from './radio_active.svg';
