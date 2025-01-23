@@ -23,3 +23,7 @@ export {default as PasswordLogo} from './password_logo.svg';
 export {default as BatteryLogo} from './battery.svg';
 
 export {default as EmptyImage} from './empty_image.svg';
+
+export {default as CoachMarkLogo} from './coach_mark_logo.svg';
+
+export {default as FilterLogo} from './filter.svg';

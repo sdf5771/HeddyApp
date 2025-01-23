@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Animated, SafeAreaView, Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { Animated, SafeAreaView, Text, View, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import {ExpandableCalendar, AgendaList, CalendarProvider, WeekCalendar, LocaleConfig} from 'react-native-calendars';
 import { Positions } from 'react-native-calendars/src/expandableCalendar';
 import { UpdateSources } from 'react-native-calendars/src/expandableCalendar/commons';
 import { format } from 'date-fns';
 import { RecordCard } from '../organisms';
-
+import { CoachMarkLogo, FilterLogo } from '../../assets/svgs/atoms';
 type TWeekDateState = {
     year: number;
     month: string;
@@ -15,7 +15,7 @@ type TWeekDateState = {
 
 function RecordScreen({navigation}: {navigation: any}){
     const [dateState, setDateState] = useState(new Date().toISOString());
-    const [isWeekView, setIsWeekView] = useState(false);
+    const [isMonthView, setIsMonthView] = useState(false);
     const heightAnim = useRef(new Animated.Value(163)).current;
     const [weekDateState, setWeekDateState] = useState<TWeekDateState[] | null>(null);
     const [weekNumberState, setWeekNumberState] = useState(0);
@@ -24,7 +24,7 @@ function RecordScreen({navigation}: {navigation: any}){
         const selectedDate = new Date(date);
         const startOfWeek = new Date(selectedDate);
         startOfWeek.setDate(selectedDate.getDate() - selectedDate.getDay()); // 주의 시작일 (일요일)
-
+        setDateState(date);
         // 주차 계산 수정
         const firstDayOfYear = new Date(selectedDate.getFullYear(), 0, 1);
         const firstWeekday = firstDayOfYear.getDay(); // 연초의 요일
@@ -64,26 +64,31 @@ function RecordScreen({navigation}: {navigation: any}){
             case 'dayPress':
                 console.log('dayPress');
                 break;
+            case 'pageScroll':
+                console.log('pageScroll');
+                break;
         }
     };
 
     useEffect(() => {
-        // isWeekView 상태가 변경될 때마다 애니메이션 실행
+        // isMonthView 상태가 변경될 때마다 애니메이션 실행
         Animated.timing(heightAnim, {
-            toValue: isWeekView ? 504 : 163,
+            toValue: isMonthView ? 504 : 163,
             duration: 300,
             useNativeDriver: false,
         }).start();
-    }, [isWeekView]); // isWeekView가 변경될 때마다 실행
+    }, [isMonthView]); // isMonthView가 변경될 때마다 실행
 
     const onCalendarToggled = (isExpanded: boolean) => {
-        setIsWeekView(isExpanded);
+        console.log('isExpanded: ', isExpanded);
+        setIsMonthView(isExpanded);
     };
 
     const animatedStyle = {
         ...styles.calendarSection,
         height: heightAnim,
     };
+    const calendarHeight = isMonthView ? 504 : 163;
 
     LocaleConfig.locales['kr'] = {
         dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
@@ -97,6 +102,73 @@ function RecordScreen({navigation}: {navigation: any}){
     return (
         <SafeAreaView style={styles.rootContainer}>
             <Animated.View style={animatedStyle}>
+                {
+                    !isMonthView ?
+                    <View style={styles.calendarSectionWeekHeader}>
+                        <TouchableOpacity onPress={() => {
+                            navigation.push('coachMarkScreen');
+                        }}>
+                            <View>
+                                <CoachMarkLogo />
+                            </View>
+                        </TouchableOpacity>
+                            <View style={styles.calendarSectionWeekHeaderButtonContainer}>
+                                <TouchableOpacity onPress={() => {
+                                    setIsMonthView(false);
+                                }}>
+                                    <View style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButton : styles.calendarSectionWeekHeaderPrimaryButton}>
+                                        <Text style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButtonText : styles.calendarSectionWeekHeaderPrimaryButtonText}>주간</Text>
+                                    </View>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => {
+                                    setIsMonthView(true);
+                                }}>
+                                    <View style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButton : styles.calendarSectionWeekHeaderDefaultButton}>
+                                        <Text style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButtonText : styles.calendarSectionWeekHeaderDefaultButtonText}>월간</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+                        <TouchableOpacity>
+                            <View>
+                                <FilterLogo />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    :
+                    <View style={styles.calendarSectionMonthHeader}>
+                        <View style={styles.calendarSectionWeekHeader}>
+                            <TouchableOpacity>
+                                <View>
+                                    <CoachMarkLogo />
+                                </View>
+                            </TouchableOpacity>
+                                <View style={styles.calendarSectionWeekHeaderButtonContainer}>
+                                    <TouchableOpacity onPress={() => {
+                                        setIsMonthView(false);
+                                    }}>
+                                        <View style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButton : styles.calendarSectionWeekHeaderPrimaryButton}>
+                                            <Text style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButtonText : styles.calendarSectionWeekHeaderPrimaryButtonText}>주간</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={() => {
+                                        setIsMonthView(true);
+                                    }}>
+                                        <View style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButton : styles.calendarSectionWeekHeaderDefaultButton}>
+                                            <Text style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButtonText : styles.calendarSectionWeekHeaderDefaultButtonText}>월간</Text>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            <TouchableOpacity>
+                                <View>
+                                    <FilterLogo />
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                        <Text style={styles.monthText}>
+                            {format(new Date(dateState), 'yyyy.MM')}
+                        </Text>
+                    </View>
+                }
                 <View style={styles.calendarContainer}>
                     <CalendarProvider 
                         date={dateState}
@@ -117,60 +189,86 @@ function RecordScreen({navigation}: {navigation: any}){
                                 color: '#2d4150',
                             },
                         }}
-                        renderHeader={(date) => {
-                            if (!isWeekView) {
-                                return (
-                                    <View style={styles.calendarSectionWeekHeader}>
-                                        <TouchableOpacity>
-                                            <View>
-                                                
-                                            </View>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity>
-                                            <View>
-                                                
-                                            </View>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity>
-                                            <View>
-                                                
-                                            </View>
-                                        </TouchableOpacity>
-                                    </View>
-                                )
-                            }
-                            return (
-                                <View style={styles.calendarSectionMonthHeader}>
-                                    <View style={styles.calendarSectionHeader}>
-                                        <TouchableOpacity>
-                                            <View>
-                                                
-                                            </View>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity>
-                                            <View>
-                                                
-                                            </View>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity>
-                                            <View>
-                                                
-                                            </View>
-                                        </TouchableOpacity>
-                                    </View>
-                                    <Text style={styles.monthText}>
-                                        {format(new Date(date), 'yyyy.MM')}
-                                    </Text>
-                                </View>
-                            );
-                        }}
+                        // renderHeader={(date) => {
+                        //     if (!isMonthView) {
+                        //         return (
+                        //             <View style={styles.calendarSectionWeekHeader}>
+                        //                 <TouchableOpacity>
+                        //                     <View>
+                        //                         <CoachMarkLogo />
+                        //                     </View>
+                        //                 </TouchableOpacity>
+                        //                     <View style={styles.calendarSectionWeekHeaderButtonContainer}>
+                        //                         <TouchableOpacity onPress={() => {
+                        //                             setIsMonthView(false);
+                        //                         }}>
+                        //                             <View style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButton : styles.calendarSectionWeekHeaderPrimaryButton}>
+                        //                                 <Text style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButtonText : styles.calendarSectionWeekHeaderPrimaryButtonText}>주간</Text>
+                        //                             </View>
+                        //                         </TouchableOpacity>
+                        //                         <TouchableOpacity onPress={() => {
+                        //                             setIsMonthView(true);
+                        //                         }}>
+                        //                             <View style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButton : styles.calendarSectionWeekHeaderDefaultButton}>
+                        //                                 <Text style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButtonText : styles.calendarSectionWeekHeaderDefaultButtonText}>월간</Text>
+                        //                             </View>
+                        //                         </TouchableOpacity>
+                        //                     </View>
+                        //                 <TouchableOpacity>
+                        //                     <View>
+                        //                         <FilterLogo />
+                        //                     </View>
+                        //                 </TouchableOpacity>
+                        //             </View>
+                        //         )
+                        //     }
+                        //     return (
+                        //         <View style={styles.calendarSectionMonthHeader}>
+                        //             <View style={styles.calendarSectionWeekHeader}>
+                        //                 <TouchableOpacity>
+                        //                     <View>
+                        //                         <CoachMarkLogo />
+                        //                     </View>
+                        //                 </TouchableOpacity>
+                        //                     <View style={styles.calendarSectionWeekHeaderButtonContainer}>
+                        //                         <TouchableOpacity onPress={() => {
+                        //                             setIsMonthView(false);
+                        //                         }}>
+                        //                             <View style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButton : styles.calendarSectionWeekHeaderPrimaryButton}>
+                        //                                 <Text style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButtonText : styles.calendarSectionWeekHeaderPrimaryButtonText}>주간</Text>
+                        //                             </View>
+                        //                         </TouchableOpacity>
+                        //                         <TouchableOpacity onPress={() => {
+                        //                             setIsMonthView(true);
+                        //                         }}>
+                        //                             <View style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButton : styles.calendarSectionWeekHeaderDefaultButton}>
+                        //                                 <Text style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButtonText : styles.calendarSectionWeekHeaderDefaultButtonText}>월간</Text>
+                        //                             </View>
+                        //                         </TouchableOpacity>
+                        //                     </View>
+                        //                 <TouchableOpacity>
+                        //                     <View>
+                        //                         <FilterLogo />
+                        //                     </View>
+                        //                 </TouchableOpacity>
+                        //             </View>
+                        //             <Text style={styles.monthText}>
+                        //                 {format(new Date(date), 'yyyy.MM')}
+                        //             </Text>
+                        //         </View>
+                        //     );
+                        // }}
                         onCalendarToggled={onCalendarToggled}
-                        initialPosition={isWeekView ? Positions.OPEN : Positions.CLOSED}
-                        disablePan={true}
+                        initialPosition={isMonthView ? Positions.OPEN : Positions.CLOSED}
+                        calendarHeight={calendarHeight}
+                        disablePan={false}
                         hideKnob={true}
                         firstDay={0}
                         monthFormat=""
-                        hideArrows={true} />
+                        renderHeader={() => <></>}
+                        allowShadow={false}
+                        hideArrows={isMonthView ? false : true}
+                         />
                     </CalendarProvider>
                 </View>
             </Animated.View>
@@ -217,7 +315,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
     calendarSectionWeekHeader: {
-        marginTop: 16,
+        marginTop: 20,
+        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -225,11 +324,47 @@ const styles = StyleSheet.create({
         height: 32,
         paddingHorizontal: 24,
     },
+    calendarSectionWeekHeaderButtonContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: 96,
+        height: 32,
+        borderRadius: 24,
+        backgroundColor: '#F4F4F4',
+    },
+    calendarSectionWeekHeaderPrimaryButton: {
+        width: 50,
+        height: 32,
+        backgroundColor: '#1F5FFF',
+        borderRadius: 24,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    calendarSectionWeekHeaderPrimaryButtonText: {
+        fontFamily: 'NanumSquareRoundEB',
+        fontSize: 14,
+        fontWeight: '900',
+        color: '#ffffff',
+    },
+    calendarSectionWeekHeaderDefaultButton: {
+        width: 50,
+        height: 32,
+        backgroundColor: '#F4F4F4',
+        borderRadius: 24,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    calendarSectionWeekHeaderDefaultButtonText: {
+        fontFamily: 'NanumSquareRoundEB',
+        fontSize: 14,
+        fontWeight: '900',
+        color: '#808080',
+    },
     calendarSectionMonthHeader:{
-        marginTop: 16,
         display: 'flex',
         alignItems: 'center',
-        paddingHorizontal: 24,
     },
     calendarSectionHeader: {
         display: 'flex',
@@ -240,6 +375,9 @@ const styles = StyleSheet.create({
     },
     calendarContainer: {
         display: 'flex',
+        width: '100%',
+        height: 504,
+        // overflow: 'hidden',
     },
     historyCardSection: {
         flex: 1,

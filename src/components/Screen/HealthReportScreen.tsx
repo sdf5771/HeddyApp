@@ -37,7 +37,9 @@ function HealthReportScreen({navigation}){
                 </View>
                 <ScrollView style={styles.scrollViewSection}>
                     <HeddyBandHealthHistory />
-                    <HeddyBandHealthHistoryEmpty />
+                    <View style={styles.lastChildWrapper}>
+                        <HeddyBandHealthHistoryEmpty />
+                    </View>
                 </ScrollView>
             </View>
             <ChangePetStatusBottomSheet isVisible={isVisible} toggleModal={toggleModal} />
@@ -99,7 +101,10 @@ const styles = StyleSheet.create({
         color: '#4D4D4D',
     },
     scrollViewSection: {
-        marginBottom: 100,
+        marginBottom: 80,
+    },
+    lastChildWrapper: {
+        marginBottom: 40,
     },
 })
 

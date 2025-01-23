@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, Text, StyleSheet, Animated, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Animated, TouchableOpacity, Dimensions } from 'react-native';
 import { ArrowDownBlack } from '../../assets/svgs/atoms';
 
 type Tprops = {
@@ -11,7 +11,7 @@ type Tprops = {
 
 const DEFAULT_HEIGHT = 50;
 const EXPANDED_HEIGHT = 431;
-
+const { width } = Dimensions.get('window');
 function RecordCard({isEmptyView, writeButtonOnPress, date, dayOfTheWeek}: Tprops){
     const [isExpanded, setIsExpanded] = useState(false);
     const [rotateAnim] = useState(new Animated.Value(0));
@@ -36,26 +36,28 @@ function RecordCard({isEmptyView, writeButtonOnPress, date, dayOfTheWeek}: Tprop
             <>
                 <View style={styles.recordCardHeader}>
                     <Text style={styles.recordCardHeaderDateText}>{date}.{dayOfTheWeek}</Text>
-                    <View style={styles.recordCardHeaderStatusContainer}>
-                        <Text style={styles.defaultStatusText}>사료</Text>
-                        <Text style={styles.defaultStatusText}>급수</Text>
-                        <Text style={styles.activeStatusText}>배변</Text>
-                        <Text style={styles.defaultStatusText}>피부</Text>
-                        <Text style={styles.activeStatusText}>기타</Text>
-                    </View>
-                    <View>
-                        <TouchableOpacity onPress={() => {
-                                setIsExpanded(!isExpanded);
-                                Animated.timing(rotateAnim, {
-                                    toValue: isExpanded ? 0 : 1,
-                                    duration: 300,
-                                    useNativeDriver: true
-                                }).start();
-                            }}>
-                            <Animated.View style={{ transform: [{ rotate }] }}>
-                                <ArrowDownBlack />
-                            </Animated.View>
-                        </TouchableOpacity>
+                    <View style={styles.recordRightContainer}>
+                        <View style={styles.recordCardHeaderStatusContainer}>
+                            <Text style={styles.defaultStatusText}>사료</Text>
+                            <Text style={styles.defaultStatusText}>급수</Text>
+                            <Text style={styles.activeStatusText}>배변</Text>
+                            <Text style={styles.defaultStatusText}>피부</Text>
+                            <Text style={styles.activeStatusText}>기타</Text>
+                        </View>
+                        <View>
+                            <TouchableOpacity onPress={() => {
+                                    setIsExpanded(!isExpanded);
+                                    Animated.timing(rotateAnim, {
+                                        toValue: isExpanded ? 0 : 1,
+                                        duration: 300,
+                                        useNativeDriver: true
+                                    }).start();
+                                }}>
+                                <Animated.View style={{ transform: [{ rotate }] }}>
+                                    <ArrowDownBlack />
+                                </Animated.View>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
                 {isExpanded ? 
@@ -112,6 +114,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    recordRightContainer:{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        gap: 8,
     },
     recordCardBody: {
         display: 'flex',
@@ -180,12 +189,15 @@ const styles = StyleSheet.create({
         gap: 8,
     },
     recordCardBodyImage: {
-        width: 88,
-        height: 88,
+        // width: 88,
+        // height: 88,
+        width: (Dimensions.get('window').width - 48 - 16 - 32) / 3, // (화면 너비 - 좌우 패딩 - 이미지 사이 간격) / 3
+        height: (Dimensions.get('window').width - 48 - 16 - 32) / 3,
         backgroundColor: '#F4F4F4',
         borderRadius: 8,
     },
     recordCardBodyButtonContainer: {
+        flex: 1,
         marginTop: 16,
         display: 'flex',
         flexDirection: 'row',
@@ -194,7 +206,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     recordCardBodyButton: {
-        width: 280,
+        width: width - 32 - 48,
         height: 40,
         backgroundColor: '#F4F4F4',
         borderRadius: 12,

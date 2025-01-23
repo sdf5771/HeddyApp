@@ -8,6 +8,8 @@ import LineChartComponent from "./LineChartComponent";
 import CompareLineChartComponent from "./CompareLineChartComponent";
 import BarChartComponent from "./BarChartComponent";
 import CompareBarChartComponent from "./CompareBarChartComponent";
+import CoachMarkMessageBox from "./CoachMarkMessageBox";
+import DefaultColorButton from "./DefaultColorButton";
 export {
     StackPopHeaderTitle,
     ActivateBtn,
@@ -19,4 +21,6 @@ export {
     CompareLineChartComponent,
     BarChartComponent,
     CompareBarChartComponent,
+    CoachMarkMessageBox,
+    DefaultColorButton,
 };

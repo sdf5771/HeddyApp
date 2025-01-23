@@ -35,6 +35,7 @@ function RootNavigator(){
             <Stack.Screen name="manageHeddyBandScreen" component={Screen.ManageHeddyBandScreen} />
             <Stack.Screen name="historyCardWriteScreen" component={Screen.HistoryCardWriteScreen} />
             <Stack.Screen name="recordWriteScreen" component={Screen.RecordWriteScreen} />
+            <Stack.Screen name="coachMarkScreen" component={Screen.CoachMarkScreen} />
             <Stack.Screen name="Root" component={BottomTabNavigator} />
         </Stack.Navigator>
     )

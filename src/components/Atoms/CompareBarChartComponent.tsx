@@ -61,8 +61,12 @@ function CompareBarChartComponent(){
                 barWidth={24}
                 height={383}
                 barBorderRadius={2}
-                hideAxesAndRules
-                hideYAxisText
+                rulesColor="#e4e4e4"
+                rulesType='solid'
+                yAxisColor="#e4e4e4"
+                yAxisTextStyle={{color: '#999999'}}
+                xAxisColor="#e4e4e4"
+                xAxisLabelTextStyle={{color: '#999999'}}
                 frontColor="#1F5FFF"
                 />
         </View>
