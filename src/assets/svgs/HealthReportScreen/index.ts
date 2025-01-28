@@ -10,3 +10,5 @@ export {default as ArrowRightBlue} from './arrow-right-blue.svg';
 export {default as HeddyBandToken} from './heddyBandToken.svg';
 
 export {default as HeddyBandEmpty} from './empty-band.svg';
+
+export {default as CoachMarkHelp} from './coach_mark_help.svg';

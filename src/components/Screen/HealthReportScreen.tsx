@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { SafeAreaView, View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native';
-import { AfternoonDog, AfternoonDogWide, ArrowRightBlue } from '../../assets/svgs/HealthReportScreen';
+import { SafeAreaView, View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView, Pressable } from 'react-native';
+import { AfternoonDog, AfternoonDogWide, ArrowRightBlue, CoachMarkHelp } from '../../assets/svgs/HealthReportScreen';
 import { PetAvatarDefaultLogo } from '../../assets/svgs/atoms';
 import { HeddyBandHealthHistory, HeddyBandHealthHistoryEmpty } from '../organisms';
 import { ChangePetStatusBottomSheet } from '../BottomSheet';
@@ -20,6 +20,10 @@ function HealthReportScreen({navigation}){
                 {/* <AfternoonDog width={deviceWidth} height={deviceWidth * (280 / 360)} /> */}
                 <AfternoonDogWide />
             </View>
+            <Pressable onPress={() => navigation.push('coachMarkScreen', { screenName: 'HealthReportScreen' })}>
+                <CoachMarkHelp
+                    style={styles.coachMarkHelpImage} />
+            </Pressable>
             <View style={styles.healthReportListContainer}>
                 <View style={styles.healthReportListHeader}>
                     <View style={styles.petInformationBox}>
@@ -106,6 +110,14 @@ const styles = StyleSheet.create({
     lastChildWrapper: {
         marginBottom: 40,
     },
-})
+    coachMarkHelpImage: {
+        zIndex: 10,
+        position: 'absolute',
+        top: 24,
+        left: 24,
+        width: 188,
+        height: 24,
+    },
+});
 
 export default HealthReportScreen;
