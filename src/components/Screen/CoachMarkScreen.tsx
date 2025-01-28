@@ -12,8 +12,8 @@ const COACH_MARK_DATA_LIST = {
             messageBoxs: [
                 {
                     number: 1,
-                    title: '주간/월간으로 기록비교',
-                    description: '작성한 기록을 주간/월간으로 비교하여 볼 수 있는 기능이에요!',
+                    title: '주간/월간으로 기록 카드 확인',
+                    description: '작성한 기록들을 주간/월간 두 가지 유형으로 선택하여 확인할 수 있는 버튼이에요!',
                 },
                 {
                     number: 2,
@@ -169,13 +169,102 @@ const COACH_MARK_DATA_LIST = {
             ],
         },
     ],
-}
+    HealthReportDetailScreen: [
+        {
+            title: '건강 상세 가이드',
+            imageSrc: require('../../assets/images/CoachMarkScreen/HealthReportDetailScreen_1.png'),
+            messageBoxs: [
+                {
+                    number: 1,
+                    title: '건강 데이터 선택',
+                    description: '헤디밴드가 측정하는 심박수 / 칼로리 / 이동거리 / 걸음 수의 날짜 별 상세 데이터로 이동할 수 있는 버튼이에요.',
+                },
+                {
+                    number: 2,
+                    title: '현재 건강 데이터',
+                    description: '헤디밴드가 실시간으로 측정한 심박수 / 칼로리 / 이동거리 / 걸음 수 데이터를 확인할 수 있어요.',
+                },
+            ],
+        },
+        {
+            title: '건강 리포트 가이드',
+            imageSrc: require('../../assets/images/CoachMarkScreen/HealthReportDetailScreen_2.png'),
+            messageBoxs: [
+                {
+                    number: 1,
+                    title: '날짜 유형 선택',
+                    description: '헤디밴드가 측정한 건강 데이터를 일일/주간/월간/연간으로 나누어 비교할 수 있는 버튼이에요.',
+                },
+                {
+                    number: 2,
+                    title: '날짜 변경',
+                    description: '현재 있는 날짜를 나타내며, 글자를 터치하여 원하는 날짜로 이동할 수 있어요.',
+                },
+            ],
+        },
+        {
+            title: '건강 화면 가이드',
+            imageSrc: require('../../assets/images/CoachMarkScreen/HealthReportDetailScreen_3.png'),
+            messageBoxs: [
+                {
+                    number: 1,
+                    title: '일일 수치 범위',
+                    description: '헤디밴드가 선택한 날짜에 기록한 건강 데이터 수치의 범위를 나타내는 숫자에요.',
+                },
+                {
+                    number: 2,
+                    title: '그래프',
+                    description: '헤디밴드가 선택한 날짜에 기록한 일일 데이터를 나타내는 화면이에요. 선택한 날짜의 시간대 별로 데이터를 확인할 수 있어요!',
+                },
+            ],
+        },
+        {
+            title: '건강 화면 가이드',
+            imageSrc: require('../../assets/images/CoachMarkScreen/HealthReportDetailScreen_4.png'),
+            messageBoxs: [
+                {
+                    number: 1,
+                    title: '주간/월간/전체 수치 범위',
+                    description: '헤디밴드가 선택한 기간에 기록한 건강 데이터 수치의 범위를 나타내는 숫자에요.',
+                },
+                {
+                    number: 2,
+                    title: '비교 그래프',
+                    description: '현재 선택한 날짜 유형에 기록한 최소, 최고 건강 데이터를 날짜 별로 확인할 수 있는 화면이에요.',
+                },
+            ],
+        },
+        {
+            title: '건강 화면 가이드',
+            imageSrc: require('../../assets/images/CoachMarkScreen/HealthReportDetailScreen_5.png'),
+            messageBoxs: [
+                {
+                    number: 1,
+                    title: '리포트',
+                    description: '선택한 기간의 건강 데이터의 상세한 수치를 알 수 있는 화면이에요. 지난 날과 선택한 날의 데이터를 쉽게 비교할 수 있어요.',
+                },
+            ],
+        },
+    ],
+};
 
-const CoachMarkScreen = ({navigation}) => {
+type TScreenName = 'RecordScreen' | 'HealthReportScreen' | 'HealthReportDetailScreen';
+
+type CoachMarkScreenProps = {
+    navigation: any;
+    route: {
+        params: {
+            screenName: TScreenName;
+        };
+    };
+};
+
+const CoachMarkScreen = ({ navigation, route }: CoachMarkScreenProps) => {
     const [pageNumber, setPageNumber] = useState(0);
+    const { screenName } = route.params;
 
     const handleNextButton = () => {
-        if (pageNumber < COACH_MARK_DATA_LIST.RecordScreen.length - 1) {
+        if (pageNumber < COACH_MARK_DATA_LIST[screenName].length - 1) {
             setPageNumber(pageNumber + 1);
         } else {
             setPageNumber(0);
@@ -191,20 +280,21 @@ const CoachMarkScreen = ({navigation}) => {
     return (
         <SafeAreaView style={styles.rootContainer}>
             <View style={styles.headerContainer}>
-                <StackPopHeaderTitle navigation={navigation} text={COACH_MARK_DATA_LIST.RecordScreen[pageNumber].title} />
-            </View>
-            <View style={styles.imageContainer}>
-                <Image source={COACH_MARK_DATA_LIST.RecordScreen[pageNumber].imageSrc} style={styles.image} />
+                <StackPopHeaderTitle navigation={navigation} text={COACH_MARK_DATA_LIST[screenName][pageNumber].title} />
             </View>
             <ScrollView style={styles.contentContainer}>
+                <View style={styles.imageContainer}>
+                    <Image source={COACH_MARK_DATA_LIST[screenName][pageNumber].imageSrc} style={styles.image} />
+                </View>
                 {
-                    COACH_MARK_DATA_LIST.RecordScreen[pageNumber].messageBoxs.map((item, index, array) => {
+                    COACH_MARK_DATA_LIST[screenName][pageNumber].messageBoxs.map((item, index, array) => {
                         return (
                             <View 
                                 key={index + item.title} 
                                 style={[
                                     styles.messageBoxWrapper,
                                     index === array.length - 1 && styles.lastMessageBoxWrapper,
+                                    index === 0 && styles.firstMessageBoxWrapper,
                                 ]}
                             >
                                 <CoachMarkMessageBox number={item.number} title={item.title} description={item.description} />
@@ -221,7 +311,7 @@ const CoachMarkScreen = ({navigation}) => {
                 </View>
                 <View style={styles.buttonWrapper}>
                     <PrimaryColorButton 
-                        text={`${pageNumber === COACH_MARK_DATA_LIST.RecordScreen.length - 1 ? `돌아가기 (${pageNumber + 1}/${COACH_MARK_DATA_LIST.RecordScreen.length})` : `다음 (${pageNumber + 1}/${COACH_MARK_DATA_LIST.RecordScreen.length})`}`} 
+                        text={`${pageNumber === COACH_MARK_DATA_LIST[screenName].length - 1 ? `돌아가기 (${pageNumber + 1}/${COACH_MARK_DATA_LIST[screenName].length})` : `다음 (${pageNumber + 1}/${COACH_MARK_DATA_LIST[screenName].length})`}`} 
                         onPressHandler={handleNextButton} />
                 </View>
             </View>
@@ -260,8 +350,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: '#F4F4F4',
-        paddingTop: 32,
-        paddingHorizontal: 24,
     },
     buttonContainer: {
         position: 'absolute',
@@ -280,6 +368,10 @@ const styles = StyleSheet.create({
     },
     messageBoxWrapper: {
         marginBottom: 16,
+        paddingHorizontal: 24,
+    },
+    firstMessageBoxWrapper: {
+        marginTop: 32,
     },
     lastMessageBoxWrapper: {
         marginBottom: 131,

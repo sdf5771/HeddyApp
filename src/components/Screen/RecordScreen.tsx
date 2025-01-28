@@ -106,7 +106,7 @@ function RecordScreen({navigation}: {navigation: any}){
                     !isMonthView ?
                     <View style={styles.calendarSectionWeekHeader}>
                         <TouchableOpacity onPress={() => {
-                            navigation.push('coachMarkScreen');
+                            navigation.push('coachMarkScreen', { screenName: 'RecordScreen' });
                         }}>
                             <View>
                                 <CoachMarkLogo />
