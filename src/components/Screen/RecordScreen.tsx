@@ -85,7 +85,7 @@ function RecordScreen({navigation}: {navigation: any}){
     useEffect(() => {
         // isMonthView 상태가 변경될 때마다 애니메이션 실행
         Animated.timing(heightAnim, {
-            toValue: isMonthView ? 504 : 163,
+            toValue: isMonthView ? 404 : 163,
             duration: 300,
             useNativeDriver: false,
         }).start();
@@ -95,7 +95,7 @@ function RecordScreen({navigation}: {navigation: any}){
         ...styles.calendarSection,
         height: heightAnim,
     };
-    const calendarHeight = isMonthView ? 504 : 163;
+    const calendarHeight = isMonthView ? 404 : 163;
 
     LocaleConfig.locales['kr'] = {
         dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],

@@ -27,3 +27,7 @@ export {default as EmptyImage} from './empty_image.svg';
 export {default as CoachMarkLogo} from './coach_mark_logo.svg';
 
 export {default as FilterLogo} from './filter.svg';
+
+export {default as UserAvatarEmpty} from './user_avatar_empty.svg';
+
+export {default as AddGrey700} from './add_grey_700.svg';
