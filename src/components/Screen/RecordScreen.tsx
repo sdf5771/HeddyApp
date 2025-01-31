@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, SafeAreaView, Text, View, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
-import {ExpandableCalendar, AgendaList, CalendarProvider, WeekCalendar, LocaleConfig} from 'react-native-calendars';
+import {ExpandableCalendar, AgendaList, CalendarProvider, WeekCalendar, LocaleConfig, DateData} from 'react-native-calendars';
 import { Positions } from 'react-native-calendars/src/expandableCalendar';
 import { UpdateSources } from 'react-native-calendars/src/expandableCalendar/commons';
 import { format } from 'date-fns';
 import { RecordCard } from '../organisms';
 import { CoachMarkLogo, FilterLogo } from '../../assets/svgs/atoms';
+import { RecordFilterBottomSheet } from '../BottomSheet';
 type TWeekDateState = {
     year: number;
     month: string;
@@ -13,12 +14,20 @@ type TWeekDateState = {
     dayOfTheWeek: string;
 }
 
+const markedActiveStyle = {selected: true, marked: true, selectedColor: '#FF5252', dotColor: '#fff'};
+const markedDisabledStyle = {dotColor: '#FF5252', marked: true,};
+
 function RecordScreen({navigation}: {navigation: any}){
     const [dateState, setDateState] = useState(new Date().toISOString());
     const [isMonthView, setIsMonthView] = useState(false);
     const heightAnim = useRef(new Animated.Value(163)).current;
     const [weekDateState, setWeekDateState] = useState<TWeekDateState[] | null>(null);
     const [weekNumberState, setWeekNumberState] = useState(0);
+
+    const [isVisible, setIsVisible] = useState(false);
+    const toggleModal = () => {
+        setIsVisible(!isVisible);
+    };
 
     const calendarOnDateChanged = (date: string, updateSource: UpdateSources) => {
         const selectedDate = new Date(date);
@@ -63,9 +72,12 @@ function RecordScreen({navigation}: {navigation: any}){
                 break;
             case 'dayPress':
                 console.log('dayPress');
+                console.log('weekDates: ', weekDates);
+                setWeekDateState(weekDates);
                 break;
             case 'pageScroll':
                 console.log('pageScroll');
+                // setWeekDateState(weekDates);
                 break;
         }
     };
@@ -78,11 +90,6 @@ function RecordScreen({navigation}: {navigation: any}){
             useNativeDriver: false,
         }).start();
     }, [isMonthView]); // isMonthView가 변경될 때마다 실행
-
-    const onCalendarToggled = (isExpanded: boolean) => {
-        console.log('isExpanded: ', isExpanded);
-        setIsMonthView(isExpanded);
-    };
 
     const animatedStyle = {
         ...styles.calendarSection,
@@ -128,7 +135,7 @@ function RecordScreen({navigation}: {navigation: any}){
                                     </View>
                                 </TouchableOpacity>
                             </View>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={toggleModal}>
                             <View>
                                 <FilterLogo />
                             </View>
@@ -158,26 +165,36 @@ function RecordScreen({navigation}: {navigation: any}){
                                         </View>
                                     </TouchableOpacity>
                                 </View>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={toggleModal}>
                                 <View>
                                     <FilterLogo />
                                 </View>
                             </TouchableOpacity>
                         </View>
-                        <Text style={styles.monthText}>
-                            {format(new Date(dateState), 'yyyy.MM')}
-                        </Text>
                     </View>
                 }
                 <View style={styles.calendarContainer}>
-                    <CalendarProvider 
-                        date={dateState}
-                        onDateChanged={calendarOnDateChanged}
+                <CalendarProvider
+                    date={dateState}
+                    onDateChanged={calendarOnDateChanged}
+                    showTodayButton={false}
                     >
-                    <ExpandableCalendar
+                    {!isMonthView ? (
+                        <WeekCalendar 
+                        firstDay={0} 
+                        // markedDates={marked.current}
+                        // disableAllTouchEventsForDisabledDays
+                        monthFormat="yyyy.MM"
+                        allowShadow={false}
+                        markedDates={{
+                            '2025-01-28': markedActiveStyle,
+                            '2025-01-29': markedDisabledStyle,
+                            '2025-01-30': markedDisabledStyle,
+                            '2025-01-31': markedDisabledStyle,
+                        }}
                         theme={{
                             calendarBackground: '#ffffff',
-                            textSectionTitleColor: '#b6c1cd',
+                            textSectionTitleColor: '#1A1A1A',
                             selectedDayBackgroundColor: '#FF5252',
                             selectedDayTextColor: '#ffffff',
                             todayTextColor: '#FF5252',
@@ -188,88 +205,67 @@ function RecordScreen({navigation}: {navigation: any}){
                             textDayStyle: {
                                 color: '#2d4150',
                             },
+                            textMonthFontSize: 18,
+                            textMonthFontFamily: 'NanumSquareRoundEB',
+                            textMonthFontWeight: 'bold' as const,
+                            textDayFontFamily: 'NanumSquareRoundB',
+                            textDayFontWeight: '700' as const,
+                            textDayFontSize: 14,
+                            arrowColor: '#1F5FFF',
+                            textDayHeaderFontFamily: 'NanumSquareRoundEB',
+                            textDayHeaderFontWeight: 'bold' as const,
+                            textDayHeaderFontSize: 14,
                         }}
-                        // renderHeader={(date) => {
-                        //     if (!isMonthView) {
-                        //         return (
-                        //             <View style={styles.calendarSectionWeekHeader}>
-                        //                 <TouchableOpacity>
-                        //                     <View>
-                        //                         <CoachMarkLogo />
-                        //                     </View>
-                        //                 </TouchableOpacity>
-                        //                     <View style={styles.calendarSectionWeekHeaderButtonContainer}>
-                        //                         <TouchableOpacity onPress={() => {
-                        //                             setIsMonthView(false);
-                        //                         }}>
-                        //                             <View style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButton : styles.calendarSectionWeekHeaderPrimaryButton}>
-                        //                                 <Text style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButtonText : styles.calendarSectionWeekHeaderPrimaryButtonText}>주간</Text>
-                        //                             </View>
-                        //                         </TouchableOpacity>
-                        //                         <TouchableOpacity onPress={() => {
-                        //                             setIsMonthView(true);
-                        //                         }}>
-                        //                             <View style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButton : styles.calendarSectionWeekHeaderDefaultButton}>
-                        //                                 <Text style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButtonText : styles.calendarSectionWeekHeaderDefaultButtonText}>월간</Text>
-                        //                             </View>
-                        //                         </TouchableOpacity>
-                        //                     </View>
-                        //                 <TouchableOpacity>
-                        //                     <View>
-                        //                         <FilterLogo />
-                        //                     </View>
-                        //                 </TouchableOpacity>
-                        //             </View>
-                        //         )
-                        //     }
-                        //     return (
-                        //         <View style={styles.calendarSectionMonthHeader}>
-                        //             <View style={styles.calendarSectionWeekHeader}>
-                        //                 <TouchableOpacity>
-                        //                     <View>
-                        //                         <CoachMarkLogo />
-                        //                     </View>
-                        //                 </TouchableOpacity>
-                        //                     <View style={styles.calendarSectionWeekHeaderButtonContainer}>
-                        //                         <TouchableOpacity onPress={() => {
-                        //                             setIsMonthView(false);
-                        //                         }}>
-                        //                             <View style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButton : styles.calendarSectionWeekHeaderPrimaryButton}>
-                        //                                 <Text style={isMonthView ? styles.calendarSectionWeekHeaderDefaultButtonText : styles.calendarSectionWeekHeaderPrimaryButtonText}>주간</Text>
-                        //                             </View>
-                        //                         </TouchableOpacity>
-                        //                         <TouchableOpacity onPress={() => {
-                        //                             setIsMonthView(true);
-                        //                         }}>
-                        //                             <View style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButton : styles.calendarSectionWeekHeaderDefaultButton}>
-                        //                                 <Text style={isMonthView ? styles.calendarSectionWeekHeaderPrimaryButtonText : styles.calendarSectionWeekHeaderDefaultButtonText}>월간</Text>
-                        //                             </View>
-                        //                         </TouchableOpacity>
-                        //                     </View>
-                        //                 <TouchableOpacity>
-                        //                     <View>
-                        //                         <FilterLogo />
-                        //                     </View>
-                        //                 </TouchableOpacity>
-                        //             </View>
-                        //             <Text style={styles.monthText}>
-                        //                 {format(new Date(date), 'yyyy.MM')}
-                        //             </Text>
-                        //         </View>
-                        //     );
-                        // }}
-                        onCalendarToggled={onCalendarToggled}
-                        initialPosition={isMonthView ? Positions.OPEN : Positions.CLOSED}
-                        calendarHeight={calendarHeight}
-                        disablePan={false}
-                        hideKnob={true}
+                        />
+                    ) : (
+                        <ExpandableCalendar
+                        initialPosition={Positions.OPEN}
+                        // horizontal={false}
+                        disablePan
+                        hideKnob
+                        // disableWeekScroll
+                        // theme={theme.current}
+                        disableAllTouchEventsForDisabledDays
                         firstDay={0}
-                        monthFormat=""
-                        renderHeader={() => <></>}
+                        // markedDates={marked.current}
+                        // leftArrowImageSource={leftArrowIcon}
+                        // rightArrowImageSource={rightArrowIcon}
+                        closeOnDayPress={false}
                         allowShadow={false}
-                        hideArrows={isMonthView ? false : true}
-                         />
-                    </CalendarProvider>
+                        monthFormat="yyyy.MM"
+                        markedDates={{
+                            '2025-01-28': markedActiveStyle,
+                            '2025-01-29': markedDisabledStyle,
+                            '2025-01-30': markedDisabledStyle,
+                            '2025-01-31': markedDisabledStyle,
+                        }}
+                        theme={{
+                            calendarBackground: '#ffffff',
+                            textSectionTitleColor: '#1A1A1A',
+                            selectedDayBackgroundColor: '#FF5252',
+                            selectedDayTextColor: '#ffffff',
+                            todayTextColor: '#FF5252',
+                            dayTextColor: '#2d4150',
+                            textDisabledColor: '#d9e1e8',
+                            dotColor: '#FF5252',
+                            selectedDotColor: '#ffffff',
+                            textDayStyle: {
+                                color: '#2d4150',
+                            },
+                            textMonthFontSize: 18,
+                            textMonthFontFamily: 'NanumSquareRoundEB',
+                            textMonthFontWeight: 'bold' as const,
+                            textDayFontFamily: 'NanumSquareRoundB',
+                            textDayFontWeight: '700' as const,
+                            textDayFontSize: 14,
+                            arrowColor: '#1F5FFF',
+                            textDayHeaderFontFamily: 'NanumSquareRoundEB',
+                            textDayHeaderFontWeight: 'bold' as const,
+                            textDayHeaderFontSize: 14,
+                        }}
+                        />
+                    )}
+                </CalendarProvider>
                 </View>
             </Animated.View>
             <Animated.View style={styles.historyCardSection}>
@@ -300,6 +296,7 @@ function RecordScreen({navigation}: {navigation: any}){
                     }
                 </ScrollView>
             </Animated.View>
+            <RecordFilterBottomSheet isVisible={isVisible} toggleModal={toggleModal} />
         </SafeAreaView>
     );
 }
@@ -316,6 +313,7 @@ const styles = StyleSheet.create({
     },
     calendarSectionWeekHeader: {
         marginTop: 20,
+        marginBottom: 20,
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
