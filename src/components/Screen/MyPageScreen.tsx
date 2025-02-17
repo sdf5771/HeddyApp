@@ -124,7 +124,7 @@ function MyPageScreen({navigation}){
                                 <ArrowRightGray />
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.push('personalInformationTermScreen')}>
                             <View style={styles.settingItemContainer}>
                                 <Text style={styles.settingItemText}>개인정보 처리방침</Text>
                                 <ArrowRightGray />
