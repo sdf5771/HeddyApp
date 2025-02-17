@@ -55,7 +55,7 @@ function FriendElement({petImage, name, isConnected, deviceInfo}: FriendElementP
     )
 }
 
-function MyPageScreen(){
+function MyPageScreen({navigation}){
     return (
         <SafeAreaView style={styles.rootContainer}>
             <ScrollView>
@@ -70,7 +70,7 @@ function MyPageScreen(){
                                 <Text style={styles.userAccountText}>heddy@heddy.com</Text>
                             </View>
                             <View style={styles.userInfoTextWrapper}>
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.push('modifyUserInformationScreen')}>
                                     <Text style={styles.userEditButtonText}>편집하기</Text>
                                 </TouchableOpacity>
                             </View>

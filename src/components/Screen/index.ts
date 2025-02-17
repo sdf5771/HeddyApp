@@ -31,4 +31,7 @@ import HistoryCardWriteScreen from './HistoryCardWriteScreen';
 // Coach Mark
 import CoachMarkScreen from './CoachMarkScreen';
 
-export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen, ManageHeddyBandScreen, HistoryCardWriteScreen, RecordWriteScreen, CoachMarkScreen};
+// Modify User Information
+import ModifyUserInformationScreen from './ModifyUserInformationScreen';
+
+export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen, ManageHeddyBandScreen, HistoryCardWriteScreen, RecordWriteScreen, CoachMarkScreen, ModifyUserInformationScreen};
