@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, Text, View, StyleSheet, ScrollView, TouchableOpacity, FlatList, Image } from 'react-native';
 import { UserAvatarEmpty } from '../../assets/svgs/atoms';
 import { PetAvatarDefaultLogo, AddGrey700 } from '../../assets/svgs/atoms';
+import { ArrowRightGray } from '../../assets/svgs/atoms';
 
 const DUMP_FRIEND_LIST = [
     {
@@ -111,7 +112,42 @@ function MyPageScreen(){
                         <Text style={styles.titleText}>설정</Text>
                     </View>
                     <View style={styles.settingListContainer}>
-
+                        <TouchableOpacity>
+                            <View style={styles.settingItemContainer}>
+                                <Text style={styles.settingItemText}>버전 정보</Text>
+                                <Text style={styles.settingItemVersionText}>v 1.0.0</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.settingItemContainer}>
+                                <Text style={styles.settingItemText}>이용약관</Text>
+                                <ArrowRightGray />
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.settingItemContainer}>
+                                <Text style={styles.settingItemText}>개인정보 처리방침</Text>
+                                <ArrowRightGray />
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.settingItemContainer}>
+                                <Text style={styles.settingItemText}>마케팅 정보 수신 및 개인정보 제공 방침</Text>
+                                <ArrowRightGray />
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.settingItemContainer}>
+                                <Text style={styles.settingItemText}>위치기반 서비스 이용약관</Text>
+                                <ArrowRightGray />
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={styles.settingItemContainer}>
+                                <Text style={styles.settingItemText}>로그아웃</Text>
+                                <View />
+                            </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
 
@@ -208,6 +244,37 @@ const styles = StyleSheet.create({
     },
     settingListContainer: {
         marginTop: 16,
+        width: '100%',
+        height: 334 + 8 + 8,
+        borderRadius: 16,
+        backgroundColor: '#ffffff',
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    settingItemContainer:{
+        width: '100%',
+        height: 56,
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    flexStartContainer: {
+        justifyContent: 'flex-start',
+    },
+    settingItemText: {
+        fontFamily: 'NanumSquareRoundB',
+        fontSize: 14,
+        color: '#4D4D4D',
+    },
+    settingItemVersionText: {
+        fontFamily: 'NanumSquareRound',
+        fontSize: 12,
+        color: '#808080',
     },
     friendElementContainer: {
         display: 'flex',
