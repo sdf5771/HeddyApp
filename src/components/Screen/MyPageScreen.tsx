@@ -151,6 +151,22 @@ function MyPageScreen(){
                     </View>
                 </View>
 
+                <View style={styles.textContainer}>
+                    <Text style={styles.textContainerGrayText}>고객문의</Text>
+                    <View style={styles.textContainerGrayTextWrapper}>
+                        <Text style={styles.textContainerGrayText}>이메일</Text>
+                        <View style={styles.verticalLine} />
+                        <Text style={styles.textContainerGrayText}>heddy@heddy.com</Text>
+                    </View>
+                    <View style={styles.textContainerGrayTextWrapper}>
+                        <Text style={styles.textContainerGrayText}>유선문의</Text>
+                        <View style={styles.verticalLine} />
+                        <Text style={styles.textContainerGrayText}>000-0000-0000</Text>
+                    </View>
+                    <TouchableOpacity>
+                        <Text style={styles.textContainerGrayUnderlineText}>회원 탈퇴</Text>
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
         </SafeAreaView>
     )
@@ -349,6 +365,35 @@ const styles = StyleSheet.create({
         fontFamily: 'NanumSquareRoundEB',
         fontSize: 14,
         color: '#1a1a1a',
+    },
+    textContainer: {
+        paddingHorizontal: 24,
+        marginTop: 32,
+    },
+    textContainerGrayText: {
+        fontFamily: 'NanumSquareRoundB',
+        fontSize: 14,
+        color: '#B3B3B3',
+    },
+    textContainerGrayUnderlineText: {
+        marginTop: 40,
+        marginBottom: 100,
+        fontFamily: 'NanumSquareRoundEB',
+        fontSize: 14,
+        color: '#B3B3B3',
+        textDecorationLine: 'underline',
+    },
+    verticalLine: {
+        width: 1,
+        height: 16.5,
+        backgroundColor: '#E4E4E4',
+        marginHorizontal: 8,
+    },
+    textContainerGrayTextWrapper: {
+        marginTop: 11,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
     },
 });
 
