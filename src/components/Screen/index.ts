@@ -34,7 +34,46 @@ import CoachMarkScreen from './CoachMarkScreen';
 // Modify User Information
 import ModifyUserInformationScreen from './ModifyUserInformationScreen';
 
-// Personal Information Term
+// Term
 import PersonalInformationTermScreen from './PersonalInformationTermScreen';
+import TermOfServiceScreen from './TermOfServiceScreen';
+import ConsentToReceiveMarketingInformationScreen from './ConsentToReceiveMarketingInformationScreen';
+import LocationBasedServiceConsentScreen from './LocationBasedServiceConsentScreen';
 
-export default {HealthReportScreen, HealthReportDetailScreen, MyPageScreen, RecordScreen, LoginScreen, SplashOnBoardScreen, SplashScreen, PetListScreen, RegistPetScreen, RegistEmailAccountScreen, RegistAgreeTermScreen, RegistEmailAuthScreen, RegistUserInformationScreen, RegistSuccessScreen, FindPasswordInputEmailScreen, FindPasswordEmailAuthScreen, FindPasswordReplaceScreen, FindPasswordCompleteScreen, ManageHeddyBandScreen, HistoryCardWriteScreen, RecordWriteScreen, CoachMarkScreen, ModifyUserInformationScreen, PersonalInformationTermScreen};
+// Service Withdrawal
+import ServiceWithdrawalFirstScreen from './ServiceWithdrawalFirstScreen';
+import ServiceWithdrawalSecondScreen from './ServiceWithdrawalSecondScreen';
+import ServiceWithdrawalThirdScreen from './ServiceWithdrawalThirdScreen';
+
+export default {
+    HealthReportScreen, 
+    HealthReportDetailScreen, 
+    MyPageScreen, 
+    RecordScreen, 
+    LoginScreen, 
+    SplashOnBoardScreen, 
+    SplashScreen, 
+    PetListScreen, 
+    RegistPetScreen, 
+    RegistEmailAccountScreen, 
+    RegistAgreeTermScreen, 
+    RegistEmailAuthScreen, 
+    RegistUserInformationScreen, 
+    RegistSuccessScreen, 
+    FindPasswordInputEmailScreen, 
+    FindPasswordEmailAuthScreen, 
+    FindPasswordReplaceScreen, 
+    FindPasswordCompleteScreen, 
+    ManageHeddyBandScreen, 
+    HistoryCardWriteScreen, 
+    RecordWriteScreen, 
+    CoachMarkScreen, 
+    ModifyUserInformationScreen, 
+    PersonalInformationTermScreen, 
+    TermOfServiceScreen, 
+    ConsentToReceiveMarketingInformationScreen, 
+    LocationBasedServiceConsentScreen, 
+    ServiceWithdrawalFirstScreen, 
+    ServiceWithdrawalSecondScreen, 
+    ServiceWithdrawalThirdScreen,
+};

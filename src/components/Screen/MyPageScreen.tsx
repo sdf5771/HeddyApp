@@ -118,7 +118,7 @@ function MyPageScreen({navigation}){
                                 <Text style={styles.settingItemVersionText}>v 1.0.0</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.push('termOfServiceScreen')}>
                             <View style={styles.settingItemContainer}>
                                 <Text style={styles.settingItemText}>이용약관</Text>
                                 <ArrowRightGray />
@@ -130,13 +130,13 @@ function MyPageScreen({navigation}){
                                 <ArrowRightGray />
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.push('consentToReceiveMarketingInformationScreen')}>
                             <View style={styles.settingItemContainer}>
                                 <Text style={styles.settingItemText}>마케팅 정보 수신 및 개인정보 제공 방침</Text>
                                 <ArrowRightGray />
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.push('locationBasedServiceConsentScreen')}>
                             <View style={styles.settingItemContainer}>
                                 <Text style={styles.settingItemText}>위치기반 서비스 이용약관</Text>
                                 <ArrowRightGray />
@@ -163,7 +163,7 @@ function MyPageScreen({navigation}){
                         <View style={styles.verticalLine} />
                         <Text style={styles.textContainerGrayText}>000-0000-0000</Text>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.push('serviceWithdrawalFirstScreen')}>
                         <Text style={styles.textContainerGrayUnderlineText}>회원 탈퇴</Text>
                     </TouchableOpacity>
                 </View>

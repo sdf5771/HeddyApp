@@ -33,3 +33,5 @@ export {default as UserAvatarEmpty} from './user_avatar_empty.svg';
 export {default as UserAvatarEmptyPlus} from './user_avatar_empty_plus.svg';
 
 export {default as AddGrey700} from './add_grey_700.svg';
+
+export {default as WithdrawalDogWide} from './withdrawal_wide.svg';

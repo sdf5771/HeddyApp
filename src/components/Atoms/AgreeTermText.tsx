@@ -10,6 +10,7 @@ type Tprops = {
         renderRequirementText?: boolean,
         renderOptionalText?: boolean,
         isDefaultTextBolder?: boolean;
+        hideArrow?: boolean;
     },
 }
 
@@ -31,9 +32,11 @@ function AgreeTermText({text, isActive, onPressHandler, option}: Tprops){
                     {option && option.renderOptionalText ? <Text style={styles.requirementText}>{'[선택] '}</Text> : null}
                     <Text style={option && option.isDefaultTextBolder ? styles.defaultBolderText : styles.defaultText}>{text}</Text>
                 </View>
-                <View>
-                    <ArrowRightGray />
-                </View>
+                {option && option.hideArrow ? null : (
+                    <View>
+                        <ArrowRightGray />
+                    </View>
+                )}
             </View>
         </TouchableOpacity>
     )

@@ -38,6 +38,12 @@ function RootNavigator(){
             <Stack.Screen name="coachMarkScreen" component={Screen.CoachMarkScreen} />
             <Stack.Screen name="modifyUserInformationScreen" component={Screen.ModifyUserInformationScreen} />
             <Stack.Screen name="personalInformationTermScreen" component={Screen.PersonalInformationTermScreen} />
+            <Stack.Screen name="termOfServiceScreen" component={Screen.TermOfServiceScreen} />
+            <Stack.Screen name="consentToReceiveMarketingInformationScreen" component={Screen.ConsentToReceiveMarketingInformationScreen} />
+            <Stack.Screen name="locationBasedServiceConsentScreen" component={Screen.LocationBasedServiceConsentScreen} />
+            <Stack.Screen name="serviceWithdrawalFirstScreen" component={Screen.ServiceWithdrawalFirstScreen} />
+            <Stack.Screen name="serviceWithdrawalSecondScreen" component={Screen.ServiceWithdrawalSecondScreen} />
+            <Stack.Screen name="serviceWithdrawalThirdScreen" component={Screen.ServiceWithdrawalThirdScreen} />
             <Stack.Screen name="Root" component={BottomTabNavigator} />
         </Stack.Navigator>
     )
