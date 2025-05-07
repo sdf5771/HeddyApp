@@ -1,79 +1,96 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# HeddyApp
 
-# Getting Started
+<img width="900" alt="스크린샷 2025-05-07 오전 9 13 44" src="https://github.com/user-attachments/assets/82ae4aba-d98a-40dc-a104-b321650c8527" />
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+HeddyApp은 React Native 기반의 모바일 애플리케이션입니다.  
+다양한 건강 관리, 기록, 사용자 정보 관리 기능을 제공합니다.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## 주요 기능
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- 사용자 회원가입 및 로그인
+- 건강 기록 및 리포트
+- 반려동물 등록 및 관리
+- 마케팅 정보 수신 동의, 위치 기반 서비스 동의 등 다양한 약관 관리
+- 마이페이지, 비밀번호 찾기, 정보 수정 등
+
+## 폴더 구조
+```
+src/
+components/ # UI 컴포넌트 (Atoms, Molecules, organisms, templates, BottomSheet, Screen 등)
+hooks/ # 커스텀 훅
+navigator/ # 네비게이션 관련 코드
+queries/ # 서버 통신 및 쿼리 관리
+stores/ # 상태 관리 (Recoil 등)
+types/ # 타입 정의
+assets/ # 이미지, 폰트 등 정적 리소스
+```
+
+
+## 주요 화면
+
+- `LoginScreen`: 로그인
+- `MyPageScreen`: 마이페이지
+- `RecordScreen`: 건강 기록
+- `HealthReportScreen`: 건강 리포트
+- `RegistUserInformationScreen`: 사용자 정보 등록
+- `RegistPetScreen`: 반려동물 등록
+- `ConsentToReceiveMarketingInformationScreen`: 마케팅 정보 수신 동의
+- `LocationBasedServiceConsentScreen`: 위치 기반 서비스 동의
+- `TermOfServiceScreen`: 서비스 이용약관
+- `PersonalInformationTermScreen`: 개인정보 처리방침
+- `ServiceWithdrawal*Screen`: 서비스 탈퇴 관련 화면
+- `FindPassword*Screen`: 비밀번호 찾기 관련 화면
+
+## 사용 기술
+
+- React Native 0.75.3
+- React 18.3.1
+- TypeScript
+- Recoil (상태 관리)
+- React Navigation (화면 이동)
+- React Query (서버 상태 관리)
+- Lottie, react-native-svg 등 다양한 UI 라이브러리
+
+## 설치 및 실행
+
+> **사전 준비:** [React Native 환경설정](https://reactnative.dev/docs/environment-setup)을 완료하세요.
+
+### 1. 의존성 설치
 
 ```bash
-# using npm
-npm start
+npm install
+# 또는
+yarn install
+```
 
-# OR using Yarn
+### 2. Metro 서버 실행
+
+```bash
+npm start
+# 또는
 yarn start
 ```
 
-## Step 2: Start your Application
+### 3. 앱 실행
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
+#### Android
 
 ```bash
-# using npm
 npm run android
-
-# OR using Yarn
+# 또는
 yarn android
 ```
 
-### For iOS
+#### iOS
 
 ```bash
-# using npm
 npm run ios
-
-# OR using Yarn
+# 또는
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## 기타 참고
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- [React Native 공식 문서](https://reactnative.dev/)
+- [문제 해결 가이드](https://reactnative.dev/docs/troubleshooting)
